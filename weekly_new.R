@@ -192,9 +192,6 @@ newdata <- melt(AllData2[c("date","product", "productPage", "anketaPage", "graci
 newdata2 <- dcast(data=newdata, formula= date+product ~ variable,
                   fun.aggregate = sum,
                   value.var = "value")
-newdata2 <- dcast(data=newdata, formula= date ~ product + variable,
-                  fun.aggregate = sum,
-                  value.var = "value")
 #newdata2$vtb24_productPage<-newdata2$`75728895_productPage`+newdata2$`77402130_productPage`
 #newdata2$vtb24_anketaPage<-newdata2$`75728895_anketaPage`+newdata2$`77402130_anketaPage`
 #newdata2$vtb24_graciasPage<-newdata2$`75728895_graciasPage`+newdata2$`77402130_graciasPage`
