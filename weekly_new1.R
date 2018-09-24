@@ -2,48 +2,48 @@
 #gc()
 #rm(list=ls())
 
-library(googleAnalyticsR) #Подключаем GA API$
-library(plyr) # Необходима для функции rename
-library(dplyr) #Необходима для функции full_join
+library(googleAnalyticsR) #ГЏГ®Г¤ГЄГ«ГѕГ·Г ГҐГ¬ GA API$
+library(plyr) # ГЌГҐГ®ГЎГµГ®Г¤ГЁГ¬Г  Г¤Г«Гї ГґГіГ­ГЄГ¶ГЁГЁ rename
+library(dplyr) #ГЌГҐГ®ГЎГµГ®Г¤ГЁГ¬Г  Г¤Г«Гї ГґГіГ­ГЄГ¶ГЁГЁ full_join
 library(lubridate)
 library(googleAuthR) #for authentication in GA
 library(reshape2)
 ga_auth()
 
-#final version of function for weekly
-funnel <- function(ga_id, #Счетчик Google Analytics
-                   site, #Имя хоста по которому выгружать данные
-                   product, #Название продукта по которому идет выгрузка
-                   date_range, #Диапазон дат
-                   productPage, #URL продуктовых страниц
-                   # excludePagePath, #страницы, которые необходимо исключить
-                   anketa #ID анкет в анкетном сервисе
+#final version of function for weekly + С‡С‚РѕС‚Рѕ
+funnel <- function(ga_id, #Г‘Г·ГҐГІГ·ГЁГЄ Google Analytics
+                   site, #Г€Г¬Гї ГµГ®Г±ГІГ  ГЇГ® ГЄГ®ГІГ®Г°Г®Г¬Гі ГўГ»ГЈГ°ГіГ¦Г ГІГј Г¤Г Г­Г­Г»ГҐ
+                   product, #ГЌГ Г§ГўГ Г­ГЁГҐ ГЇГ°Г®Г¤ГіГЄГІГ  ГЇГ® ГЄГ®ГІГ®Г°Г®Г¬Гі ГЁГ¤ГҐГІ ГўГ»ГЈГ°ГіГ§ГЄГ 
+                   date_range, #Г„ГЁГ ГЇГ Г§Г®Г­ Г¤Г ГІ
+                   productPage, #URL ГЇГ°Г®Г¤ГіГЄГІГ®ГўГ»Гµ Г±ГІГ°Г Г­ГЁГ¶
+                   # excludePagePath, #Г±ГІГ°Г Г­ГЁГ¶Г», ГЄГ®ГІГ®Г°Г»ГҐ Г­ГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® ГЁГ±ГЄГ«ГѕГ·ГЁГІГј
+                   anketa #ID Г Г­ГЄГҐГІ Гў Г Г­ГЄГҐГІГ­Г®Г¬ Г±ГҐГ°ГўГЁГ±ГҐ
 ){
-  metrics <- "sessions" #выгружаемые показатели
-  dimensions <- c("date","source", "medium", "campaign", "deviceCategory") #выгружаемые параметры
+  metrics <- "sessions" #ГўГ»ГЈГ°ГіГ¦Г ГҐГ¬Г»ГҐ ГЇГ®ГЄГ Г§Г ГІГҐГ«ГЁ
+  dimensions <- c("date","source", "medium", "campaign", "deviceCategory") #ГўГ»ГЈГ°ГіГ¦Г ГҐГ¬Г»ГҐ ГЇГ Г°Г Г¬ГҐГІГ°Г»
   forJoin <- c("segment"="segment","date"="date","source"="source",
                "medium"="medium", "campaign"="campaign", "deviceCategory"="deviceCategory")
-  #Описываем необходимые сегменты
-  #Шаг анкеты 1 - Продуктовая страница
+  #ГЋГЇГЁГ±Г»ГўГ ГҐГ¬ Г­ГҐГ®ГЎГµГ®Г¤ГЁГ¬Г»ГҐ Г±ГҐГЈГ¬ГҐГ­ГІГ»
+  #ГГ ГЈ Г Г­ГЄГҐГІГ» 1 - ГЏГ°Г®Г¤ГіГЄГІГ®ГўГ Гї Г±ГІГ°Г Г­ГЁГ¶Г 
   segmentProductPage <- segment_ga4("productPage",
                                     segment_id = paste0(
                                       "sessions::condition::ga:pagePath=~",productPage#,
                                       #";ga:pagePath!~",excludePagePath
                                     )
   )
-  #Шаг анкеты 2 - Переход на анкету
+  #ГГ ГЈ Г Г­ГЄГҐГІГ» 2 - ГЏГҐГ°ГҐГµГ®Г¤ Г­Г  Г Г­ГЄГҐГІГі
   segmentAnketaPage <- segment_ga4("anketaPage",
                                    segment_id = paste0("sessions::condition::ga:hostname=~", site,
                                                        ";ga:pagePath=~",anketa))
-  #Шаг анкеты 3 - Успешная верификация
+  #ГГ ГЈ Г Г­ГЄГҐГІГ» 3 - Г“Г±ГЇГҐГёГ­Г Гї ГўГҐГ°ГЁГґГЁГЄГ Г¶ГЁГї
   segmentSMSPage <- segment_ga4("smsPage", segment_id = paste0("sessions::condition::ga:hostname=~",site,
                                                                ";ga:pagePath=~",anketa,".*tab1$"))
-  #Шаг анкеты 4 - Анкета отправлена
+  #ГГ ГЈ Г Г­ГЄГҐГІГ» 4 - ГЂГ­ГЄГҐГІГ  Г®ГІГЇГ°Г ГўГ«ГҐГ­Г 
   segmentGraciasPage <- segment_ga4("graciasPage",
                                     segment_id = paste0("sessions::condition::ga:hostname=~",site,
                                                         ";ga:pagePath=~.*gracias.*",anketa))
   
-  #Выгружаем данные продуктовой страницы
+  #Г‚Г»ГЈГ°ГіГ¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ ГЇГ°Г®Г¤ГіГЄГІГ®ГўГ®Г© Г±ГІГ°Г Г­ГЁГ¶Г»
   productPage <- google_analytics(ga_id,  
                                   date_range = date_range, 
                                   metrics = metrics, 
@@ -54,7 +54,7 @@ funnel <- function(ga_id, #Счетчик Google Analytics
   if(!is.null(productPage)) {
     productPage <- plyr::rename(productPage,c('sessions'='productPage'))
   }
-  #Выгружаем данные страницы анкеты
+  #Г‚Г»ГЈГ°ГіГ¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ Г±ГІГ°Г Г­ГЁГ¶Г» Г Г­ГЄГҐГІГ»
   anketaPage <- google_analytics(ga_id,  date_range = date_range, 
                                  metrics = metrics, dimensions = dimensions, 
                                  max = -1, anti_sample = TRUE,
@@ -63,7 +63,7 @@ funnel <- function(ga_id, #Счетчик Google Analytics
     anketaPage <- plyr::rename(anketaPage,c('sessions'='anketaPage'))
   }
   
-  #Выгружаем данные по верификации
+  #Г‚Г»ГЈГ°ГіГ¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ ГЇГ® ГўГҐГ°ГЁГґГЁГЄГ Г¶ГЁГЁ
   smsPage <- google_analytics(ga_id,  date_range = date_range, 
                               metrics = metrics, dimensions = dimensions, 
                               max = -1, anti_sample = TRUE,
@@ -72,7 +72,7 @@ funnel <- function(ga_id, #Счетчик Google Analytics
     smsPage <- plyr::rename(smsPage,c('sessions'='smsPage'))
   }
   
-  #Выгружаем данные по заявкам
+  #Г‚Г»ГЈГ°ГіГ¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ ГЇГ® Г§Г ГїГўГЄГ Г¬
   graciasPage <- google_analytics(ga_id,
                                   date_range = date_range,
                                   metrics = metrics,
@@ -84,7 +84,7 @@ funnel <- function(ga_id, #Счетчик Google Analytics
     graciasPage <- plyr::rename(graciasPage,c('sessions'='graciasPage'))
   }
   
-  #Объединение таблиц по продукту
+  #ГЋГЎГєГҐГ¤ГЁГ­ГҐГ­ГЁГҐ ГІГ ГЎГ«ГЁГ¶ ГЇГ® ГЇГ°Г®Г¤ГіГЄГІГі
   if(!is.null(productPage)) {
     tableData <- productPage
     if(!is.null(anketaPage)){
@@ -107,7 +107,7 @@ funnel <- function(ga_id, #Счетчик Google Analytics
 }
 
 
-#Даты
+#Г„Г ГІГ»
 #take monthly data only if today is tuesday
 if(weekdays.Date(Sys.Date())=="Tuesday"){
   dataStart <- paste0("2018-",format(Sys.Date(), "%m"), "-01")
@@ -118,14 +118,14 @@ date_range <- c(dataStart, format(Sys.Date()-1, "%Y-%m-%d"))
 
 #date_range <- c("2018-09-17", "2018-09-23")
 
-#Общие данные
+#ГЋГЎГ№ГЁГҐ Г¤Г Г­Г­Г»ГҐ
 ga_ids <- c(166760762, 77402130, 75728895)
 sites <-c('vtb.ru','vtb24.ru', 'vtb24.ru')
 
-#Р’С‹РіСЂСѓР¶Р°РµРј РІРѕСЂРѕРЅРєСѓ РїРѕ РљРќ
-#productArr <- c("РљРќ", "Р РµС„","РљРљ", "Р”Рљ", "РђРІС‚Рѕ", "РРїРѕС‚РµРєР°") #UTF-8
+#ГђвЂ™Г‘вЂ№ГђВіГ‘в‚¬Г‘Ж’ГђВ¶ГђВ°ГђВµГђВј ГђВІГђВѕГ‘в‚¬ГђВѕГђВЅГђВєГ‘Ж’ ГђВїГђВѕ ГђЕЎГђВќ
+#productArr <- c("ГђЕЎГђВќ", "ГђВ ГђВµГ‘вЂћ","ГђЕЎГђЕЎ", "ГђвЂќГђЕЎ", "ГђВђГђВІГ‘вЂљГђВѕ", "ГђЛњГђВїГђВѕГ‘вЂљГђВµГђВєГђВ°") #UTF-8
 #productArr <- c("KN", "Ref","KK", "DK", "Avto", "Ipoteka")
-productArr <- c("КН", "Реф","КК", "ДК", "Авто", "Ипотека") #CP-1251
+productArr <- c("ГЉГЌ", "ГђГҐГґ","ГЉГЉ", "Г„ГЉ", "ГЂГўГІГ®", "Г€ГЇГ®ГІГҐГЄГ ") #CP-1251
 productPageArr <- c("personal/kredit-nalichnymi/(kalkulyator|ipotechniy|\\#|\\?|$)|credit/cash|kak-poluchit-kredit/",
                     "kredit-nalichnymi/refinansirovanie/|credit/refinancing/",
                     "karty/(.card-type_0|multikarta-kreditnaya)|cards/multicard.*(?:debit|salary)",
@@ -154,9 +154,9 @@ anketaArr <- c("(401.*01.*00.*01|401.*05.*00.*01)",
                "(303.*02.*00.*01|1601.*00.*01.*01|1601.*01.*00.*01|1601.*03.*01.*01)",
                "(406.*01.*00.*01|406.*02.*00.*01|406.*04.*00.*01|406.*00.*00.*01|406.*03.*00.*01|406.*54.*00.*01)",
                "(402.*01.*00.*01|402.*01.*00.*02|402.*05.*00.*01|402.*01.*00.*07|402.*50.*00.*01|402.*51.*00.*01|402.*52.*00.*01)")
-#Получаем и объединяем все данные с трех счетчиков по всем продуктам, указанным выше в массиве
-#Пробегаемся по каждому счетчику и по его индексу получаем адрес сайта из массива с доменами
-#Пробегаемся по массиву продуктов и по индексу берем соответствующие значения исключаемых страниц и анкет
+#ГЏГ®Г«ГіГ·Г ГҐГ¬ ГЁ Г®ГЎГєГҐГ¤ГЁГ­ГїГҐГ¬ ГўГ±ГҐ Г¤Г Г­Г­Г»ГҐ Г± ГІГ°ГҐГµ Г±Г·ГҐГІГ·ГЁГЄГ®Гў ГЇГ® ГўГ±ГҐГ¬ ГЇГ°Г®Г¤ГіГЄГІГ Г¬, ГіГЄГ Г§Г Г­Г­Г»Г¬ ГўГ»ГёГҐ Гў Г¬Г Г±Г±ГЁГўГҐ
+#ГЏГ°Г®ГЎГҐГЈГ ГҐГ¬Г±Гї ГЇГ® ГЄГ Г¦Г¤Г®Г¬Гі Г±Г·ГҐГІГ·ГЁГЄГі ГЁ ГЇГ® ГҐГЈГ® ГЁГ­Г¤ГҐГЄГ±Гі ГЇГ®Г«ГіГ·Г ГҐГ¬ Г Г¤Г°ГҐГ± Г±Г Г©ГІГ  ГЁГ§ Г¬Г Г±Г±ГЁГўГ  Г± Г¤Г®Г¬ГҐГ­Г Г¬ГЁ
+#ГЏГ°Г®ГЎГҐГЈГ ГҐГ¬Г±Гї ГЇГ® Г¬Г Г±Г±ГЁГўГі ГЇГ°Г®Г¤ГіГЄГІГ®Гў ГЁ ГЇГ® ГЁГ­Г¤ГҐГЄГ±Гі ГЎГҐГ°ГҐГ¬ Г±Г®Г®ГІГўГҐГІГ±ГІГўГіГѕГ№ГЁГҐ Г§Г­Г Г·ГҐГ­ГЁГї ГЁГ±ГЄГ«ГѕГ·Г ГҐГ¬Г»Гµ Г±ГІГ°Г Г­ГЁГ¶ ГЁ Г Г­ГЄГҐГІ
 
 AllData <- data.frame()
 for (i in 1:length(ga_ids) ){
@@ -168,7 +168,7 @@ for (i in 1:length(ga_ids) ){
     productPage <-productPageArr[j]
     #excludePagePath <- excludePagePathArr[j]
     anketa <- anketaArr[j]
-    #print(paste0("Выгружаем данные из профиля ", ga_id, " по продукту ", product))
+    #print(paste0("Г‚Г»ГЈГ°ГіГ¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ ГЁГ§ ГЇГ°Г®ГґГЁГ«Гї ", ga_id, " ГЇГ® ГЇГ°Г®Г¤ГіГЄГІГі ", product))
     tmp <- data.frame()
     tmp <- funnel(ga_id, 
                    site, 
