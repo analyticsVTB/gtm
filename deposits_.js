@@ -1,5 +1,4 @@
-console.log("++++++++++++deposits.js is loaded from git++++++++++++++");
-
+//console.log("++++++++++++deposits.js is loaded from git++++++++++++++");
   // Клик по "Рассчитать"
   if (jQuery('.ga_deposit_calc_calculate').length) {
     jQuery(document).on('click', '.ga_deposit_calc_calculate', function() {
@@ -482,7 +481,7 @@ console.log("++++++++++++deposits.js is loaded from git++++++++++++++");
     }
   }
   //ВТОРОЙ ЭТАП
-  // Клик по верхнему баннеру
+  /*// Клик по верхнему баннеру
   if (jQuery('.ga_deposit_bannerClick').length) {
     jQuery(document).on('click', '.ga_deposit_bannerClick', function() {
       dataLayer.push({
@@ -507,7 +506,7 @@ console.log("++++++++++++deposits.js is loaded from git++++++++++++++");
         yaCounter47142057.reachGoal('ym_deposit_bannerClick');
       }
     })
-  }
+  }*/
   // Клик по Рассчитать на странице Вклада
   if (jQuery('.ga_deposit_vkladCalc').length) {
     jQuery(document).on('click', '.ga_deposit_vkladCalc', function() {
