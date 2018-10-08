@@ -492,7 +492,7 @@
   });
   //--------------------------------- <!-- ВТОРОЙ ЭТАП --> --------------------------------------------------
   // <!-- КН -->
-  if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/#tab_0#') > -1) {
+ /* if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/#tab_0#') > -1) {
     // Клик Заполнить заявку (КН) верхний баннер
     jQuery(document).on('click', 'a.button.button_big.button_red', function() {
       dataLayer.push({
@@ -503,7 +503,7 @@
       });
       //if (typeof yaCounter47142057 != "undefined") {
       //         yaCounter47142057.reachGoal('ym_kn_upBannerAppClck');}
-    });
+    });*/
     // Клик Оформить заявку (КН) нижняя часть страницы
     jQuery(document).on('click', '.margin-middle-bottom .button.button_red', function() {
       dataLayer.push({
@@ -528,7 +528,7 @@
     });
   }
   // <!-- Рефинансирование кредита -->
-  if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/refinansirovanie/#tab_0#') > -1) {
+  /*if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/refinansirovanie/#tab_0#') > -1) {
     // Клик Оформить заявку (Рефинансирование) верхний баннер
     jQuery(document).on('click', 'a.button.button_big.button_red', function() {
       dataLayer.push({
@@ -539,7 +539,7 @@
       });
       //if (typeof yaCounter47142057 != "undefined") {
       //         yaCounter47142057.reachGoal('ym_ref_upBannerAppClck');}
-    });
+    });*/
     // Клик Оформить заявку (Рефинансирование) Нижняя часть страницы
     jQuery(document).on('click', '.margin-middle-bottom .button.button_red', function() {
       dataLayer.push({
