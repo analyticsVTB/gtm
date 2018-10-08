@@ -1,4 +1,4 @@
-console.log("++++++++++++morgage.js is loaded from git++++++++++++++");
+//console.log("++++++++++++morgage.js is loaded from git++++++++++++++");
   var _amount_, _term_, _term1_;
 
   function _amoter_() {
@@ -1125,7 +1125,7 @@ console.log("++++++++++++morgage.js is loaded from git++++++++++++++");
     });
   }
   // <!-- ВТОРОЙ ЭТАП -->
-  // Клик Оформить заявку верхний баннер
+ /* // Клик Оформить заявку верхний баннер
   if (jQuery('.ga_ipoteka_upBannerAppClck').length) {
     jQuery(document).on('click', '.ga_ipoteka_upBannerAppClck', function() {
       tabtxt_ = jQuery('.tab-panel__tab.active').text().trim();
@@ -1156,7 +1156,7 @@ console.log("++++++++++++morgage.js is loaded from git++++++++++++++");
       //if (typeof yaCounter47142057 != "undefined") {
       //         yaCounter47142057.reachGoal('ym_ipoteka_upBannerAppClck');}
     });
-  }
+  }*/
   // Клик Оформить заявку Нижняя часть страницы
   if (jQuery('.ga_ipoteka_downAppClck').length) {
     jQuery(document).on('click', '.ga_ipoteka_downAppClck', function() {
