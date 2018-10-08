@@ -1,4 +1,4 @@
-console.log("++++++++++++autocredit.js is loaded from git++++++++++++++");
+//console.log("++++++++++++autocredit.js is loaded from git++++++++++++++");
   var sel_ = '';
   // Клик по "Рассчитать"
   if (jQuery('.ga_avto_calculate').length) {
@@ -417,7 +417,7 @@ console.log("++++++++++++autocredit.js is loaded from git++++++++++++++");
     //         yaCounter47142057.reachGoal('ym_avto_KaskoCost_up');}
   });
   // <!-- ВТОРОЙ ЭТАП -->
-  // Клик  'Заполнить заявку' / 'Узнать больше' верхний баннер
+ /* // Клик  'Заполнить заявку' / 'Узнать больше' верхний баннер
   jQuery(document).on('click', '.media-slider__inner .button.button_red.button_big, a.button.button_red:contains("Заполнить заявку")', function() {
     _this = jQuery(this).text().trim();
     _cat = jQuery('.tab-panel__tab.active').text().trim() == "" ? jQuery('h1').text().trim() : jQuery('.tab-panel__tab.active').text().trim();
@@ -436,7 +436,7 @@ console.log("++++++++++++autocredit.js is loaded from git++++++++++++++");
     });
     //if (typeof yaCounter47142057 != "undefined") {
     //         yaCounter47142057.reachGoal('ym_avtokr_upBannerAppClck');}
-  });
+  });*/
   // Клик Оформить заявку Нижняя часть страницы
   jQuery(document).on('click', '.sms-block__form a', function() {
     __cat = jQuery('.tab-panel__tab.active').text().trim() == "" ? jQuery('h1').text().trim() : jQuery('.tab-panel__tab.active').text().trim();
