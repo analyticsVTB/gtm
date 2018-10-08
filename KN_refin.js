@@ -1,15 +1,18 @@
+console.log("++++++++++++KN_refin.js is loaded from git++++++++++++++");
   //------------------------------Калькулятор - Целевые действия-----------------------------
-  var cart, mortgage, staff, bankroll, sum;
+  var cart, mortgage, staff, bankroll, sum, term, _insurance, _hasMulticard;
   //Клик на кнопку Рассчитать - КН  
   jQuery(document).on('click', '.ga_kn_calculate', function() {
     cart = jQuery("#test-check1").prop('checked') ? 'Карта+' : 'Карта-';
-    mortgage = jQuery("#test-check5").prop('checked') ? 'Ипотека+' : 'Ипотека-';
+    // mortgage = jQuery("#test-check5").prop('checked') ? 'Ипотека+' : 'Ипотека-';
+    _insurance = jQuery("#test-check5").prop('checked') ? 'Страхование+' : 'Страхование-';
+    _hasMulticard = jQuery("#test-check6").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
     dataLayer.push({
       'event': 'UA event',
       'eventCategory': 'Кредиты / ' + 'Кредит наличными',
       'eventAction': 'Калькулятор',
       'eventLabel': 'Клик по "Рассчитать"',
-      'tag2': cart + "/" + mortgage,
+      'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
       'tag3': jQuery("#sum").val().replace(/\s/g, ''),
       'amount': parseInt(jQuery("#sum").val().replace(/\s/g, '')),
       'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
@@ -21,14 +24,16 @@
   //Клик на кнопку Рассчитать - Рефинансирование
   jQuery(document).on('click', '.ga_ref_calculate', function() {
     cart = jQuery("#test-check7").prop('checked') ? 'Карта+' : 'Карта-';
-    staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
-    bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
+    // staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    // bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
+    _insurance = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    _hasMulticard = jQuery("#test-check12").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
     dataLayer.push({
       'event': 'UA event',
       'eventCategory': 'Кредиты / ' + 'Рефинансирование кредита',
       'eventAction': 'Калькулятор',
       'eventLabel': 'Клик по "Рассчитать"',
-      'tag2': cart + "/" + staff + "/" + bankroll,
+      'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
       'tag3': jQuery("#debt").val().replace(/\s/g, ''),
       'amount': parseInt(jQuery("#debt").val().replace(/\s/g, '')),
       'term': undefined
@@ -40,14 +45,16 @@
   //Клик по Распечатать - КН
   if (document.location.href.indexOf('refinansirovanie') < 0) {
     jQuery(document).on('click', '.ga_kn_printer', function() {
-      cart = jQuery("#test-check1").prop('checked') ? 'Карта+' : 'Карта-'
-      mortgage = jQuery("#test-check5").prop('checked') ? 'Ипотека+' : 'Ипотека-'
+      cart = jQuery("#test-check1").prop('checked') ? 'Карта+' : 'Карта-';
+      // mortgage = jQuery("#test-check5").prop('checked') ? 'Ипотека+' : 'Ипотека-';
+      _insurance = jQuery("#test-check5").prop('checked') ? 'Страхование+' : 'Страхование-';
+      _hasMulticard = jQuery("#test-check6").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
       dataLayer.push({
         'event': 'UA event',
         'eventCategory': 'Кредиты / ' + 'Кредит наличными',
         'eventAction': 'Калькулятор',
         'eventLabel': 'Клик по "Распечатать"',
-        'tag2': cart + "/" + mortgage,
+        'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
         'tag3': jQuery("#sum").val().replace(/\s/g, ''),
         'amount': parseInt(jQuery("#sum").val().replace(/\s/g, '')),
         'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
@@ -61,19 +68,22 @@
   if (jQuery('.ga_ref_printer').length) {
     jQuery(document).on('click', '.ga_ref_printer', function() {
       cart = jQuery("#test-check7").prop('checked') ? 'Карта+' : 'Карта-';
-      staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
-      bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
+      // staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+      // bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
+      _insurance = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+      _hasMulticard = jQuery("#test-check12").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
       sum = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#debt").val().replace(/\s/g, '') : jQuery("#on-hands").val().replace(/\s/g, '');
+      term = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#term").val().replace(/\s/g, '') : jQuery("#new-term").val().replace(/\s/g, '');
       dataLayer.push({
         'event': 'UA event',
         'eventCategory': 'Кредиты / ' + 'Рефинансирование кредита',
         'eventAction': 'Калькулятор',
         'eventLabel': 'Клик по "Распечатать"',
-        'tag2': cart + "/" + staff + "/" + bankroll,
+        'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
         'tag3': sum,
         'tag4': jQuery('.simple-tab__heads-item.active a:first').text().trim().replace(/\n.*/g, ''),
         'amount': parseInt(sum),
-        'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
+        'term': parseInt(term)
       });
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_ref_printer');
@@ -82,19 +92,22 @@
   } else {
     jQuery(document).on('click', 'refund-credit .icon-common-printer', function() {
       cart = jQuery("#test-check7").prop('checked') ? 'Карта+' : 'Карта-';
-      staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
-      bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
+      // staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+      // bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
+      _insurance = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+      _hasMulticard = jQuery("#test-check12").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
       sum = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#debt").val().replace(/\s/g, '') : jQuery("#on-hands").val().replace(/\s/g, '');
+      term = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#term").val().replace(/\s/g, '') : jQuery("#new-term").val().replace(/\s/g, '');
       dataLayer.push({
         'event': 'UA event',
         'eventCategory': 'Кредиты / ' + 'Рефинансирование кредита',
         'eventAction': 'Калькулятор',
         'eventLabel': 'Клик по "Распечатать"',
-        'tag2': cart + "/" + staff + "/" + bankroll,
+        'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
         'tag3': sum,
         'tag4': jQuery('.simple-tab__heads-item.active a:first').text().trim().replace(/\n.*/g, ''),
         'amount': parseInt(sum),
-        'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
+        'term': parseInt(term)
       });
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_ref_printer');
@@ -103,14 +116,16 @@
   }
   //Клик по "График платежей" - КН
   jQuery(document).on('click', '.ga_kn_schedule', function() {
-    cart = jQuery("#test-check1").prop('checked') ? 'Карта+' : 'Карта-'
-    mortgage = jQuery("#test-check5").prop('checked') ? 'Ипотека+' : 'Ипотека-'
+    cart = jQuery("#test-check1").prop('checked') ? 'Карта+' : 'Карта-';
+    // mortgage = jQuery("#test-check5").prop('checked') ? 'Ипотека+' : 'Ипотека-';
+    _insurance = jQuery("#test-check5").prop('checked') ? 'Страхование+' : 'Страхование-';
+    _hasMulticard = jQuery("#test-check6").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
     dataLayer.push({
       'event': 'UA event',
       'eventCategory': 'Кредиты / ' + 'Кредит наличными',
       'eventAction': 'Калькулятор',
       'eventLabel': 'Клик по "График платежей"',
-      'tag2': cart + "/" + mortgage,
+      'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
       'tag3': jQuery("#sum").val().replace(/\s/g, ''),
       'amount': parseInt(jQuery("#sum").val().replace(/\s/g, '')),
       'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
@@ -122,19 +137,22 @@
   //Клик по "График платежей" - Рефинансирование
   jQuery(document).on('click', '.ga_ref_schedule', function() {
     cart = jQuery("#test-check7").prop('checked') ? 'Карта+' : 'Карта-';
-    staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
-    bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
+    // staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    // bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
+    _insurance = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    _hasMulticard = jQuery("#test-check12").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
     sum = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#debt").val().replace(/\s/g, '') : jQuery("#on-hands").val().replace(/\s/g, '');
+    term = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#term").val().replace(/\s/g, '') : jQuery("#new-term").val().replace(/\s/g, '');
     dataLayer.push({
       'event': 'UA event',
       'eventCategory': 'Кредиты / ' + 'Рефинансирование кредита',
       'eventAction': 'Калькулятор',
       'eventLabel': 'Клик по "График платежей"',
-      'tag2': cart + "/" + staff + "/" + bankroll,
+      'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
       'tag3': sum,
       'tag4': jQuery('.simple-tab__heads-item.active a:first').text().trim().replace(/\n.*/g, ''),
       'amount': parseInt(sum),
-      'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
+      'term': parseInt(term)
     });
     if (typeof yaCounter47142057 != "undefined") {
       yaCounter47142057.reachGoal('ym_ref_schedule');
@@ -142,38 +160,45 @@
   });
   //Клик по "Распечатать" в Графике платежей  - КН
   jQuery(document).on('click', '.modal__body a.round-icon-link', function() {
-    cart = jQuery("#test-check1").prop('checked') ? 'Карта+' : 'Карта-'
-    mortgage = jQuery("#test-check5").prop('checked') ? 'Ипотека+' : 'Ипотека-'
-    dataLayer.push({
-      'event': 'UA event',
-      'eventCategory': 'Кредиты / ' + 'Кредит наличными',
-      'eventAction': 'Калькулятор',
-      'eventLabel': 'Клик по "Распечатать" в Графике платежей',
-      'tag2': cart + "/" + mortgage,
-      'tag3': jQuery("#sum").val().replace(/\s/g, ''),
-      'amount': parseInt(jQuery("#sum").val().replace(/\s/g, '')),
-      'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
-    });
-    if (typeof yaCounter47142057 != "undefined") {
-      yaCounter47142057.reachGoal('ym_kn_schPrinter');
+    if ($('.tab-panel__tab.active').text().trim() != 'Рефинансирование') {
+      cart = jQuery("#test-check1").prop('checked') ? 'Карта+' : 'Карта-';
+      // mortgage = jQuery("#test-check5").prop('checked') ? 'Ипотека+' : 'Ипотека-';
+      _insurance = jQuery("#test-check5").prop('checked') ? 'Страхование+' : 'Страхование-';
+      _hasMulticard = jQuery("#test-check6").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
+      dataLayer.push({
+        'event': 'UA event',
+        'eventCategory': 'Кредиты / ' + 'Кредит наличными',
+        'eventAction': 'Калькулятор',
+        'eventLabel': 'Клик по "Распечатать" в Графике платежей',
+        'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
+        'tag3': jQuery("#sum").val().replace(/\s/g, ''),
+        'amount': parseInt(jQuery("#sum").val().replace(/\s/g, '')),
+        'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
+      });
+      if (typeof yaCounter47142057 != "undefined") {
+        yaCounter47142057.reachGoal('ym_kn_schPrinter');
+      }
     }
   });
   //Клик по "Распечатать" Графике платежей - Рефинансирование
   jQuery(document).on('click', '.modal__body a.round-icon-link', function() {
     cart = jQuery("#test-check7").prop('checked') ? 'Карта+' : 'Карта-';
-    staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
-    bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
+    // staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    // bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
+    _insurance = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    _hasMulticard = jQuery("#test-check12").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
     sum = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#debt").val().replace(/\s/g, '') : jQuery("#on-hands").val().replace(/\s/g, '');
+    term = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#term").val().replace(/\s/g, '') : jQuery("#new-term").val().replace(/\s/g, '');
     dataLayer.push({
       'event': 'UA event',
       'eventCategory': 'Кредиты / ' + 'Рефинансирование кредита',
       'eventAction': 'Калькулятор',
       'eventLabel': 'Клик по "Распечатать" в Графике платежей',
-      'tag2': cart + "/" + staff + "/" + bankroll,
+      'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
       'tag3': sum,
       'tag4': jQuery('.simple-tab__heads-item.active a:first').text().trim().replace(/\n.*/g, ''),
       'amount': parseInt(sum),
-      'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
+      'term': parseInt(term)
     });
     if (typeof yaCounter47142057 != "undefined") {
       yaCounter47142057.reachGoal('ym_ref_schPrinter');
@@ -181,14 +206,16 @@
   });
   //Клик на кнопку Оформить заявку - КН
   jQuery(document).on('click', '.ga_kn_statement', function() {
-    cart = jQuery("#test-check1").prop('checked') ? 'Карта+' : 'Карта-'
-    mortgage = jQuery("#test-check5").prop('checked') ? 'Ипотека+' : 'Ипотека-'
+    cart = jQuery("#test-check1").prop('checked') ? 'Карта+' : 'Карта-';
+    // mortgage = jQuery("#test-check5").prop('checked') ? 'Ипотека+' : 'Ипотека-';
+    _insurance = jQuery("#test-check5").prop('checked') ? 'Страхование+' : 'Страхование-';
+    _hasMulticard = jQuery("#test-check6").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
     dataLayer.push({
       'event': 'UA event',
       'eventCategory': 'Кредиты / ' + 'Кредит наличными',
       'eventAction': 'Калькулятор',
       'eventLabel': 'Клик по "Оформить заявку"',
-      'tag2': cart + "/" + mortgage,
+      'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
       'tag3': jQuery("#sum").val().replace(/\s/g, ''),
       'amount': parseInt(jQuery("#sum").val().replace(/\s/g, '')),
       'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
@@ -200,19 +227,22 @@
   //Клик на кнопку Оформить заявку - Рефинансирование
   jQuery(document).on('click', '.ga_ref_statement', function() {
     cart = jQuery("#test-check7").prop('checked') ? 'Карта+' : 'Карта-';
-    staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
-    bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
+    // staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    // bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
+    _insurance = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    _hasMulticard = jQuery("#test-check12").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
     sum = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#debt").val().replace(/\s/g, '') : jQuery("#on-hands").val().replace(/\s/g, '');
+    term = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#term").val().replace(/\s/g, '') : jQuery("#new-term").val().replace(/\s/g, '');
     dataLayer.push({
       'event': 'UA event',
       'eventCategory': 'Кредиты / ' + 'Рефинансирование кредита',
       'eventAction': 'Калькулятор',
       'eventLabel': 'Клик по "Оформить заявку"',
-      'tag2': cart + "/" + staff + "/" + bankroll,
+      'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
       'tag3': sum,
       'tag4': jQuery('.simple-tab__heads-item.active a:first').text().trim().replace(/\n.*/g, ''),
       'amount': parseInt(sum),
-      'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
+      'term': parseInt(term)
     });
     if (typeof yaCounter47142057 != "undefined") {
       yaCounter47142057.reachGoal('ym_ref_statement');
@@ -377,7 +407,7 @@
       'eventCategory': 'Кредиты / ' + 'Рефинансирование кредита',
       'eventAction': 'Калькулятор',
       'eventLabel': 'Уменьшение нового платежа',
-      'tag2': jQuery('#payment').val().replace(/\s/g, ''),
+      'tag2': jQuery('.simple-tab__heads-item.active a:first').text().trim().replace(/\n.*/g, '') == 'Сниженный платеж' ? jQuery('#payment').val().replace(/\s/g, '') : jQuery('#new-payment').val().replace(/\s/g, ''),
       'tag3': undefined,
       'tag4': jQuery('.simple-tab__heads-item.active a:first').text().trim().replace(/\n.*/g, ''),
       'amount': undefined,
@@ -392,7 +422,7 @@
       'eventCategory': 'Кредиты / ' + 'Рефинансирование кредита',
       'eventAction': 'Калькулятор',
       'eventLabel': 'Увеличение нового платежа',
-      'tag2': jQuery('#payment').val().replace(/\s/g, ''),
+      'tag2': jQuery('.simple-tab__heads-item.active a:first').text().trim().replace(/\n.*/g, '') == 'Сниженный платеж' ? jQuery('#payment').val().replace(/\s/g, '') : jQuery('#new-payment').val().replace(/\s/g, ''),
       'tag3': undefined,
       'tag4': jQuery('.simple-tab__heads-item.active a:first').text().trim().replace(/\n.*/g, ''),
       'amount': undefined,
@@ -407,7 +437,7 @@
       'eventCategory': 'Кредиты / ' + 'Рефинансирование кредита',
       'eventAction': 'Калькулятор',
       'eventLabel': 'Уменьшение нового срока',
-      'tag2': jQuery('#term').val().replace(/\s/g, ''),
+      'tag2': jQuery('.simple-tab__heads-item.active a:first').text().trim().replace(/\n.*/g, '') == 'Сниженный платеж' ? jQuery('#term').val().replace(/\s/g, '') : jQuery('#new-term').val().replace(/\s/g, ''),
       'tag3': undefined,
       'tag4': jQuery('.simple-tab__heads-item.active a:first').text().trim().replace(/\n.*/g, ''),
       'amount': undefined,
@@ -422,7 +452,7 @@
       'eventCategory': 'Кредиты / ' + 'Рефинансирование кредита',
       'eventAction': 'Калькулятор',
       'eventLabel': 'Увеличение нового срока',
-      'tag2': jQuery('#term').val().replace(/\s/g, ''),
+      'tag2': jQuery('.simple-tab__heads-item.active a:first').text().trim().replace(/\n.*/g, '') == 'Сниженный платеж' ? jQuery('#term').val().replace(/\s/g, '') : jQuery('#new-term').val().replace(/\s/g, ''),
       'tag3': undefined,
       'tag4': jQuery('.simple-tab__heads-item.active a:first').text().trim().replace(/\n.*/g, ''),
       'amount': undefined,
