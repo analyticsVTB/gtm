@@ -1,4 +1,4 @@
-console.log("++++++++++++morgage_calc.js is loaded from git++++++++++++++");
+//console.log("++++++++++++morgage_calc.js is loaded from git++++++++++++++");
   var _amount_, _term_;
 
   function _amoter1_() {
