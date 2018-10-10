@@ -526,7 +526,6 @@
       //if (typeof yaCounter47142057 != "undefined") {
       //         yaCounter47142057.reachGoal('ym_kn_downLink');}
     });
-  }
   // <!-- Рефинансирование кредита -->
   /*if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/refinansirovanie/#tab_0#') > -1) {
     // Клик Оформить заявку (Рефинансирование) верхний баннер
