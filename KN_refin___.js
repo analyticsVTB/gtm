@@ -1,4 +1,5 @@
-// console.log("++++++++++++KN_refin.js is loaded from git++++++++++++++");
+<script>
+  // console.log("++++++++++++KN_refin.js is loaded from git++++++++++++++");
   //------------------------------Калькулятор - Целевые действия-----------------------------
   var cart, mortgage, staff, bankroll, sum, term, _insurance, _hasMulticard;
   //Клик на кнопку Рассчитать - КН  
@@ -492,40 +493,40 @@
   });
   //--------------------------------- <!-- ВТОРОЙ ЭТАП --> --------------------------------------------------
   // <!-- КН -->
- /* if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/#tab_0#') > -1) {
-    // Клик Заполнить заявку (КН) верхний баннер
-    jQuery(document).on('click', 'a.button.button_big.button_red', function() {
-      dataLayer.push({
-        'event': 'UA event',
-        'eventCategory': 'Кредиты / ' + jQuery(this).siblings('h3').text().trim(),
-        'eventAction': 'Верхний баннер',
-        'eventLabel': jQuery(this).text()
-      });
-      //if (typeof yaCounter47142057 != "undefined") {
-      //         yaCounter47142057.reachGoal('ym_kn_upBannerAppClck');}
-    });*/
-    // Клик Оформить заявку (КН) нижняя часть страницы
-    jQuery(document).on('click', '.margin-middle-bottom .button.button_red', function() {
-      dataLayer.push({
-        'event': 'UA event',
-        'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim(),
-        'eventAction': 'Нижняя часть страницы',
-        'eventLabel': jQuery(this).text()
-      });
-      //if (typeof yaCounter47142057 != "undefined") {
-      //         yaCounter47142057.reachGoal('ym_kn_downBannerAppClck');}
+  /* if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/#tab_0#') > -1) {
+     // Клик Заполнить заявку (КН) верхний баннер
+     jQuery(document).on('click', 'a.button.button_big.button_red', function() {
+       dataLayer.push({
+         'event': 'UA event',
+         'eventCategory': 'Кредиты / ' + jQuery(this).siblings('h3').text().trim(),
+         'eventAction': 'Верхний баннер',
+         'eventLabel': jQuery(this).text()
+       });
+       //if (typeof yaCounter47142057 != "undefined") {
+       //         yaCounter47142057.reachGoal('ym_kn_upBannerAppClck');}
+     });*/
+  // Клик Оформить заявку (КН) нижняя часть страницы
+  jQuery(document).on('click', '.margin-middle-bottom .button.button_red', function() {
+    dataLayer.push({
+      'event': 'UA event',
+      'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim(),
+      'eventAction': 'Нижняя часть страницы',
+      'eventLabel': jQuery(this).text()
     });
-    //  'Условия' / 'Оформление кредита' / Название кликнутой ссылки
-    jQuery(document).on('click', 'section.simple-tab.simple-tab_queen-size.margin-middle-top.margin-middle-bottom a', function() {
-      dataLayer.push({
-        'event': 'UA event',
-        'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim(),
-        'eventAction': 'Блок под калькулятором',
-        'eventLabel': jQuery(this).text()
-      });
-      //if (typeof yaCounter47142057 != "undefined") {
-      //         yaCounter47142057.reachGoal('ym_kn_downLink');}
+    //if (typeof yaCounter47142057 != "undefined") {
+    //         yaCounter47142057.reachGoal('ym_kn_downBannerAppClck');}
+  });
+  //  'Условия' / 'Оформление кредита' / Название кликнутой ссылки
+  jQuery(document).on('click', 'section.simple-tab.simple-tab_queen-size.margin-middle-top.margin-middle-bottom a', function() {
+    dataLayer.push({
+      'event': 'UA event',
+      'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim(),
+      'eventAction': 'Блок под калькулятором',
+      'eventLabel': jQuery(this).text()
     });
+    //if (typeof yaCounter47142057 != "undefined") {
+    //         yaCounter47142057.reachGoal('ym_kn_downLink');}
+  });
   // <!-- Рефинансирование кредита -->
   /*if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/refinansirovanie/#tab_0#') > -1) {
     // Клик Оформить заявку (Рефинансирование) верхний баннер
@@ -539,29 +540,28 @@
       //if (typeof yaCounter47142057 != "undefined") {
       //         yaCounter47142057.reachGoal('ym_ref_upBannerAppClck');}
     });*/
-    // Клик Оформить заявку (Рефинансирование) Нижняя часть страницы
-    jQuery(document).on('click', '.margin-middle-bottom .button.button_red', function() {
-      dataLayer.push({
-        'event': 'UA event',
-        'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim() + ' кредита',
-        'eventAction': 'Нижняя часть страницы',
-        'eventLabel': jQuery(this).text()
-      });
-      //if (typeof yaCounter47142057 != "undefined") {
-      //         yaCounter47142057.reachGoal('ym_ref_downBannerAppClck');}
+  // Клик Оформить заявку (Рефинансирование) Нижняя часть страницы
+  jQuery(document).on('click', '.margin-middle-bottom .button.button_red', function() {
+    dataLayer.push({
+      'event': 'UA event',
+      'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim() + ' кредита',
+      'eventAction': 'Нижняя часть страницы',
+      'eventLabel': jQuery(this).text()
     });
-    //  'Условия' / 'Оформление кредита' / Название кликнутой ссылки
-    jQuery(document).on('click', 'section.simple-tab.simple-tab_queen-size.margin-middle-top.margin-middle-bottom a', function() {
-      dataLayer.push({
-        'event': 'UA event',
-        'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim() + ' кредита',
-        'eventAction': 'Блок под калькулятором',
-        'eventLabel': jQuery(this).text()
-      });
-      //if (typeof yaCounter47142057 != "undefined") {
-      //         yaCounter47142057.reachGoal('ym_ref_downLink');}
+    //if (typeof yaCounter47142057 != "undefined") {
+    //         yaCounter47142057.reachGoal('ym_ref_downBannerAppClck');}
+  });
+  //  'Условия' / 'Оформление кредита' / Название кликнутой ссылки
+  jQuery(document).on('click', 'section.simple-tab.simple-tab_queen-size.margin-middle-top.margin-middle-bottom a', function() {
+    dataLayer.push({
+      'event': 'UA event',
+      'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim() + ' кредита',
+      'eventAction': 'Блок под калькулятором',
+      'eventLabel': jQuery(this).text()
     });
-  }
+    //if (typeof yaCounter47142057 != "undefined") {
+    //         yaCounter47142057.reachGoal('ym_ref_downLink');}
+  });
   // <!--  Ипотечный бонус -->
   //   Ипотечный бонус оформить заявку
   if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/ipotechniy-bonus/') > -1) {
@@ -576,3 +576,4 @@
       //         yaCounter47142057.reachGoal('ym_ibonus_order');}
     });
   }
+</script>
