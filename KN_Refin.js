@@ -493,8 +493,8 @@
   });
   //--------------------------------- <!-- ВТОРОЙ ЭТАП --> --------------------------------------------------
   // <!-- КН -->
-  /* if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/#tab_0#') > -1) {
-     // Клик Заполнить заявку (КН) верхний баннер
+   if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/#tab_0#') > -1) {
+     /*// Клик Заполнить заявку (КН) верхний баннер
      jQuery(document).on('click', 'a.button.button_big.button_red', function() {
        dataLayer.push({
          'event': 'UA event',
@@ -527,9 +527,10 @@
     //if (typeof yaCounter47142057 != "undefined") {
     //         yaCounter47142057.reachGoal('ym_kn_downLink');}
   });
+   }
   // <!-- Рефинансирование кредита -->
-  /*if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/refinansirovanie/#tab_0#') > -1) {
-    // Клик Оформить заявку (Рефинансирование) верхний баннер
+  if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/refinansirovanie/#tab_0#') > -1) {
+   /* // Клик Оформить заявку (Рефинансирование) верхний баннер
     jQuery(document).on('click', 'a.button.button_big.button_red', function() {
       dataLayer.push({
         'event': 'UA event',
@@ -562,6 +563,7 @@
     //if (typeof yaCounter47142057 != "undefined") {
     //         yaCounter47142057.reachGoal('ym_ref_downLink');}
   });
+  }
   // <!--  Ипотечный бонус -->
   //   Ипотечный бонус оформить заявку
   if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/ipotechniy-bonus/') > -1) {
