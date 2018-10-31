@@ -25,9 +25,9 @@
   //Клик на кнопку Рассчитать - Рефинансирование
   jQuery(document).on('click', '.ga_ref_calculate', function() {
     cart = jQuery("#test-check7").prop('checked') ? 'Карта+' : 'Карта-';
-    // staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    // staff = jQuery("#test-check8").prop('checked') ? 'Страхование+' : 'Страхование-';
     // bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
-    _insurance = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    _insurance = jQuery("#test-check8").prop('checked') ? 'Страхование+' : 'Страхование-';
     _hasMulticard = jQuery("#test-check12").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
     dataLayer.push({
       'event': 'UA event',
@@ -69,9 +69,9 @@
   if (jQuery('.ga_ref_printer').length) {
     jQuery(document).on('click', '.ga_ref_printer', function() {
       cart = jQuery("#test-check7").prop('checked') ? 'Карта+' : 'Карта-';
-      // staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+      // staff = jQuery("#test-check8").prop('checked') ? 'Страхование+' : 'Страхование-';
       // bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
-      _insurance = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+      _insurance = jQuery("#test-check8").prop('checked') ? 'Страхование+' : 'Страхование-';
       _hasMulticard = jQuery("#test-check12").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
       sum = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#debt").val().replace(/\s/g, '') : jQuery("#on-hands").val().replace(/\s/g, '');
       term = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#term").val().replace(/\s/g, '') : jQuery("#new-term").val().replace(/\s/g, '');
@@ -93,9 +93,9 @@
   } else {
     jQuery(document).on('click', 'refund-credit .icon-common-printer', function() {
       cart = jQuery("#test-check7").prop('checked') ? 'Карта+' : 'Карта-';
-      // staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+      // staff = jQuery("#test-check8").prop('checked') ? 'Страхование+' : 'Страхование-';
       // bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
-      _insurance = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+      _insurance = jQuery("#test-check8").prop('checked') ? 'Страхование+' : 'Страхование-';
       _hasMulticard = jQuery("#test-check12").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
       sum = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#debt").val().replace(/\s/g, '') : jQuery("#on-hands").val().replace(/\s/g, '');
       term = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#term").val().replace(/\s/g, '') : jQuery("#new-term").val().replace(/\s/g, '');
@@ -138,9 +138,9 @@
   //Клик по "График платежей" - Рефинансирование
   jQuery(document).on('click', '.ga_ref_schedule', function() {
     cart = jQuery("#test-check7").prop('checked') ? 'Карта+' : 'Карта-';
-    // staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    // staff = jQuery("#test-check8").prop('checked') ? 'Страхование+' : 'Страхование-';
     // bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
-    _insurance = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    _insurance = jQuery("#test-check8").prop('checked') ? 'Страхование+' : 'Страхование-';
     _hasMulticard = jQuery("#test-check12").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
     sum = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#debt").val().replace(/\s/g, '') : jQuery("#on-hands").val().replace(/\s/g, '');
     term = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#term").val().replace(/\s/g, '') : jQuery("#new-term").val().replace(/\s/g, '');
@@ -184,9 +184,9 @@
   //Клик по "Распечатать" Графике платежей - Рефинансирование
   jQuery(document).on('click', '.modal__body a.round-icon-link', function() {
     cart = jQuery("#test-check7").prop('checked') ? 'Карта+' : 'Карта-';
-    // staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    // staff = jQuery("#test-check8").prop('checked') ? 'Страхование+' : 'Страхование-';
     // bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
-    _insurance = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    _insurance = jQuery("#test-check8").prop('checked') ? 'Страхование+' : 'Страхование-';
     _hasMulticard = jQuery("#test-check12").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
     sum = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#debt").val().replace(/\s/g, '') : jQuery("#on-hands").val().replace(/\s/g, '');
     term = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#term").val().replace(/\s/g, '') : jQuery("#new-term").val().replace(/\s/g, '');
@@ -228,9 +228,9 @@
   //Клик на кнопку Оформить заявку - Рефинансирование
   jQuery(document).on('click', '.ga_ref_statement', function() {
     cart = jQuery("#test-check7").prop('checked') ? 'Карта+' : 'Карта-';
-    // staff = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    // staff = jQuery("#test-check8").prop('checked') ? 'Страхование+' : 'Страхование-';
     // bankroll = jQuery("#test-check6").prop('checked') ? 'Доп.средства+' : 'Доп.средства-';
-    _insurance = jQuery("#test-check8").prop('checked') ? 'Сотрудник+' : 'Сотрудник-';
+    _insurance = jQuery("#test-check8").prop('checked') ? 'Страхование+' : 'Страхование-';
     _hasMulticard = jQuery("#test-check12").prop('checked') ? 'Мультикарта+' : 'Мультикарта-';
     sum = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#debt").val().replace(/\s/g, '') : jQuery("#on-hands").val().replace(/\s/g, '');
     term = (jQuery('.simple-tab__heads-item.active a:first').text().indexOf('Сниженный') + 1) ? jQuery("#term").val().replace(/\s/g, '') : jQuery("#new-term").val().replace(/\s/g, '');
