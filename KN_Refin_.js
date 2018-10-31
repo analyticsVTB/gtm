@@ -1,4 +1,3 @@
-
   // console.log("++++++++++++KN_refin.js is loaded from git++++++++++++++");
   //------------------------------Калькулятор - Целевые действия-----------------------------
   var cart, mortgage, staff, bankroll, sum, term, _insurance, _hasMulticard;
