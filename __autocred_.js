@@ -9,7 +9,7 @@
       insurance = jQuery('label:contains("Со страхованием жизни")').closest('span').children('input[type="checkbox"]').is('.ng-not-empty') ? 'Страхование+' : 'Страхование-';
       dataLayer.push({
         'event': 'UA event',
-        'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+        'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
         'eventAction': 'Калькулятор',
         'eventLabel': 'Клик по "Рассчитать"',
         'tag2': cart + "/" + package_ + "/" + kasko + "/" + insurance,
@@ -30,7 +30,7 @@
       insurance = jQuery('label:contains("Со страхованием жизни")').closest('span').children('input[type="checkbox"]').is('.ng-not-empty') ? 'Страхование+' : 'Страхование-';
       dataLayer.push({
         'event': 'UA event',
-        'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+        'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
         'eventAction': 'Калькулятор',
         'eventLabel': 'Клик по "Рассчитать"',
         'tag2': cart + "/" + package_ + "/" + kasko + "/" + insurance,
@@ -53,7 +53,7 @@
       insurance = jQuery('label:contains("Со страхованием жизни")').closest('span').children('input[type="checkbox"]').is('.ng-not-empty') ? 'Страхование+' : 'Страхование-';
       dataLayer.push({
         'event': 'UA event',
-        'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+        'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
         'eventAction': 'Калькулятор',
         'eventLabel': 'Клик по "Распечатать"',
         'tag2': cart + "/" + package_ + "/" + kasko + "/" + insurance,
@@ -74,7 +74,7 @@
       insurance = jQuery('label:contains("Со страхованием жизни")').closest('span').children('input[type="checkbox"]').is('.ng-not-empty') ? 'Страхование+' : 'Страхование-';
       dataLayer.push({
         'event': 'UA event',
-        'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+        'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
         'eventAction': 'Калькулятор',
         'eventLabel': 'Клик по "Распечатать"',
         'tag2': cart + "/" + package_ + "/" + kasko + "/" + insurance,
@@ -96,7 +96,7 @@
     insurance = jQuery('label:contains("Со страхованием жизни")').closest('span').children('input[type="checkbox"]').is('.ng-not-empty') ? 'Страхование+' : 'Страхование-';
     dataLayer.push({
       'event': 'UA event',
-      'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+      'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
       'eventAction': 'Калькулятор',
       'eventLabel': 'Клик по "Распечатать" в Графике платежей',
       'tag2': cart + "/" + package_ + "/" + kasko + "/" + insurance,
@@ -117,7 +117,7 @@
       insurance = jQuery('label:contains("Со страхованием жизни")').closest('span').children('input[type="checkbox"]').is('.ng-not-empty') ? 'Страхование+' : 'Страхование-';
       dataLayer.push({
         'event': 'UA event',
-        'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+        'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
         'eventAction': 'Калькулятор',
         'eventLabel': 'Клик по "График платежей"',
         'tag2': cart + "/" + package_ + "/" + kasko + "/" + insurance,
@@ -138,7 +138,7 @@
       insurance = jQuery('label:contains("Со страхованием жизни")').closest('span').children('input[type="checkbox"]').is('.ng-not-empty') ? 'Страхование+' : 'Страхование-';
       dataLayer.push({
         'event': 'UA event',
-        'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+        'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
         'eventAction': 'Калькулятор',
         'eventLabel': 'Клик по "График платежей"',
         'tag2': cart + "/" + package_ + "/" + kasko + "/" + insurance,
@@ -161,7 +161,7 @@
       insurance = jQuery('label:contains("Со страхованием жизни")').closest('span').children('input[type="checkbox"]').is('.ng-not-empty') ? 'Страхование+' : 'Страхование-';
       dataLayer.push({
         'event': 'UA event',
-        'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+        'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
         'eventAction': 'Калькулятор',
         'eventLabel': 'Клик по "Оформить заявку"',
         'tag2': cart + "/" + package_ + "/" + kasko + "/" + insurance,
@@ -182,7 +182,7 @@
       insurance = jQuery('label:contains("Со страхованием жизни")').closest('span').children('input[type="checkbox"]').is('.ng-not-empty') ? 'Страхование+' : 'Страхование-';
       dataLayer.push({
         'event': 'UA event',
-        'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+        'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
         'eventAction': 'Калькулятор',
         'eventLabel': 'Клик по "Оформить заявку"',
         'tag2': cart + "/" + package_ + "/" + kasko + "/" + insurance,
@@ -200,7 +200,7 @@
   jQuery('#price').siblings('.input-number__button.input-number__button_down ').on('click', function() {
     dataLayer.push({
       'event': 'UA event',
-      'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+      'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
       'eventAction': 'Калькулятор',
       'eventLabel': 'Уменьшение стоимости автомобиля',
       'tag2': jQuery('#price').val().replace(/\s/g, ''),
@@ -217,7 +217,7 @@
   jQuery('#price').siblings('.input-number__button.input-number__button_up ').on('click', function() {
     dataLayer.push({
       'event': 'UA event',
-      'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+      'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
       'eventAction': 'Калькулятор',
       'eventLabel': 'Увеличение стоимости автомобиля',
       'tag2': jQuery('#price').val().replace(/\s/g, ''),
@@ -234,7 +234,7 @@
   jQuery('#first').siblings('.input-number__button.input-number__button_down ').on('click', function() {
     dataLayer.push({
       'event': 'UA event',
-      'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+      'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
       'eventAction': 'Калькулятор',
       'eventLabel': 'Уменьшение первый взнос',
       'tag2': jQuery('#first').val().replace(/\s/g, ''),
@@ -251,7 +251,7 @@
   jQuery('#first').siblings('.input-number__button.input-number__button_up ').on('click', function() {
     dataLayer.push({
       'event': 'UA event',
-      'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+      'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
       'eventAction': 'Калькулятор',
       'eventLabel': 'Увеличение первый взнос',
       'tag2': jQuery('#first').val().replace(/\s/g, ''),
@@ -271,7 +271,7 @@
       setTimeout(function() {
         dataLayer.push({
           'event': 'UA event',
-          'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+          'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
           'eventAction': 'Калькулятор',
           'eventLabel': 'Уменьшение ежемесячный платеж',
           'tag2': sel_.val().replace(/\s/g, ''),
@@ -291,7 +291,7 @@
       setTimeout(function() {
         dataLayer.push({
           'event': 'UA event',
-          'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+          'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
           'eventAction': 'Калькулятор',
           'eventLabel': 'Уменьшение ежемесячный платеж',
           'tag2': sel_.val().replace(/\s/g, ''),
@@ -313,7 +313,7 @@
       setTimeout(function() {
         dataLayer.push({
           'event': 'UA event',
-          'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+          'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
           'eventAction': 'Калькулятор',
           'eventLabel': 'Увеличение ежемесячный платеж',
           'tag2': sel_.val().replace(/\s/g, ''),
@@ -333,7 +333,7 @@
       setTimeout(function() {
         dataLayer.push({
           'event': 'UA event',
-          'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+          'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
           'eventAction': 'Калькулятор',
           'eventLabel': 'Увеличение ежемесячный платеж',
           'tag2': sel_.val().replace(/\s/g, ''),
@@ -352,7 +352,7 @@
   jQuery(document).on('click', 'label:contains("Срок кредита, лет")~span .input-number__button.input-number__button_down', function() {
     dataLayer.push({
       'event': 'UA event',
-      'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+      'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
       'eventAction': 'Калькулятор',
       'eventLabel': 'Уменьшение срока',
       'tag2': String(jQuery(this).siblings('input').val() * 12),
@@ -369,7 +369,7 @@
   jQuery(document).on('click', 'label:contains("Срок кредита, лет")~span .input-number__button.input-number__button_up', function() {
     dataLayer.push({
       'event': 'UA event',
-      'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+      'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
       'eventAction': 'Калькулятор',
       'eventLabel': 'Увеличение срока',
       'tag2': String(jQuery(this).siblings('input').val() * 12),
@@ -386,7 +386,7 @@
   jQuery(document).on('click', 'label:contains("Стоимость КАСКО, ₽")~span .input-number__button.input-number__button_down', function() {
     dataLayer.push({
       'event': 'UA event',
-      'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+      'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
       'eventAction': 'Калькулятор',
       'eventLabel': 'Уменьшение стоимость Каско',
       'tag2': jQuery(this).siblings('input').val().replace(/\s/g, ''),
@@ -403,7 +403,7 @@
   jQuery(document).on('click', 'label:contains("Стоимость КАСКО, ₽")~span .input-number__button.input-number__button_up', function() {
     dataLayer.push({
       'event': 'UA event',
-      'eventCategory': 'Автокредиты / ' + jQuery('a').is('.tab-panel__tab.active') ? jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : jQuery('h1').text().trim().replace(/\n.*/g, ''),
+      'eventCategory': jQuery('a').is('.tab-panel__tab.active') ? 'Автокредиты / ' + jQuery('.tab-panel__tab.active').text().trim().replace(/\n.*/g, '') : 'Автокредиты / ' + jQuery('h1').text().trim().replace(/\n.*/g, ''),
       'eventAction': 'Калькулятор',
       'eventLabel': 'Увеличение стоимость Каско',
       'tag2': jQuery(this).siblings('input').val().replace(/\s/g, ''),
