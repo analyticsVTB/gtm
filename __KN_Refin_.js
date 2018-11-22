@@ -492,14 +492,19 @@
   });
   //--------------------------------- <!-- ВТОРОЙ ЭТАП --> --------------------------------------------------
   // <!-- КН -->
-   if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/') > -1) {
+   if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi/') > -1 && document.location.href.indexOf('refinansirovanie') == -1) {
      /*// Клик Заполнить заявку (КН) верхний баннер
      jQuery(document).on('click', 'a.button.button_big.button_red', function() {
        dataLayer.push({
          'event': 'UA event',
          'eventCategory': 'Кредиты / ' + jQuery(this).siblings('h3').text().trim(),
          'eventAction': 'Верхний баннер',
-         'eventLabel': jQuery(this).text()
+         'eventLabel': jQuery(this).text(),
+      'tag2': undefined,
+      'tag3': undefined,
+      'tag4': undefined,
+      'amount': undefined,
+      'term': undefined
        });
        //if (typeof yaCounter47142057 != "undefined") {
        //         yaCounter47142057.reachGoal('ym_kn_upBannerAppClck');}
@@ -510,7 +515,12 @@
       'event': 'UA event',
       'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim(),
       'eventAction': 'Нижняя часть страницы',
-      'eventLabel': jQuery(this).text()
+      'eventLabel': jQuery(this).text(),
+      'tag2': undefined,
+      'tag3': undefined,
+      'tag4': undefined,
+      'amount': undefined,
+      'term': undefined
     });
     //if (typeof yaCounter47142057 != "undefined") {
     //         yaCounter47142057.reachGoal('ym_kn_downBannerAppClck');}
@@ -521,7 +531,12 @@
       'event': 'UA event',
       'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim(),
       'eventAction': 'Блок под калькулятором',
-      'eventLabel': jQuery(this).text()
+      'eventLabel': jQuery(this).text(),
+      'tag2': undefined,
+      'tag3': undefined,
+      'tag4': undefined,
+      'amount': undefined,
+      'term': undefined
     });
     //if (typeof yaCounter47142057 != "undefined") {
     //         yaCounter47142057.reachGoal('ym_kn_downLink');}
@@ -535,7 +550,12 @@
         'event': 'UA event',
         'eventCategory': 'Кредиты / ' + jQuery(this).siblings('h3').text().trim() + ' кредита',
         'eventAction': 'Верхний баннер',
-        'eventLabel': jQuery(this).text()
+        'eventLabel': jQuery(this).text(),
+      'tag2': undefined,
+      'tag3': undefined,
+      'tag4': undefined,
+      'amount': undefined,
+      'term': undefined
       });
       //if (typeof yaCounter47142057 != "undefined") {
       //         yaCounter47142057.reachGoal('ym_ref_upBannerAppClck');}
@@ -546,7 +566,12 @@
       'event': 'UA event',
       'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim() + ' кредита',
       'eventAction': 'Нижняя часть страницы',
-      'eventLabel': jQuery(this).text()
+      'eventLabel': jQuery(this).text(),
+      'tag2': undefined,
+      'tag3': undefined,
+      'tag4': undefined,
+      'amount': undefined,
+      'term': undefined
     });
     //if (typeof yaCounter47142057 != "undefined") {
     //         yaCounter47142057.reachGoal('ym_ref_downBannerAppClck');}
@@ -557,7 +582,12 @@
       'event': 'UA event',
       'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim() + ' кредита',
       'eventAction': 'Блок под калькулятором',
-      'eventLabel': jQuery(this).text()
+      'eventLabel': jQuery(this).text(),
+      'tag2': undefined,
+      'tag3': undefined,
+      'tag4': undefined,
+      'amount': undefined,
+      'term': undefined
     });
     //if (typeof yaCounter47142057 != "undefined") {
     //         yaCounter47142057.reachGoal('ym_ref_downLink');}
@@ -571,7 +601,12 @@
         'event': 'UA event',
         'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim(),
         'eventAction': jQuery(this).text(),
-        'eventLabel': undefined
+        'eventLabel': undefined,
+      'tag2': undefined,
+      'tag3': undefined,
+      'tag4': undefined,
+      'amount': undefined,
+      'term': undefined
       });
       //if (typeof yaCounter47142057 != "undefined") {
       //         yaCounter47142057.reachGoal('ym_ibonus_order');}
