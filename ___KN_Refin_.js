@@ -14,6 +14,7 @@
       'eventLabel': 'Клик по "Рассчитать"',
       'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
       'tag3': jQuery("#sum").val().replace(/\s/g, ''),
+      'tag4': undefined,
       'amount': parseInt(jQuery("#sum").val().replace(/\s/g, '')),
       'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
     });
@@ -35,6 +36,7 @@
       'eventLabel': 'Клик по "Рассчитать"',
       'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
       'tag3': jQuery("#debt").val().replace(/\s/g, ''),
+      'tag4': undefined,
       'amount': parseInt(jQuery("#debt").val().replace(/\s/g, '')),
       'term': undefined
     });
@@ -56,6 +58,7 @@
         'eventLabel': 'Клик по "Распечатать"',
         'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
         'tag3': jQuery("#sum").val().replace(/\s/g, ''),
+        'tag4': undefined,
         'amount': parseInt(jQuery("#sum").val().replace(/\s/g, '')),
         'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
       });
@@ -127,6 +130,7 @@
       'eventLabel': 'Клик по "График платежей"',
       'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
       'tag3': jQuery("#sum").val().replace(/\s/g, ''),
+      'tag4': undefined,
       'amount': parseInt(jQuery("#sum").val().replace(/\s/g, '')),
       'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
     });
@@ -172,6 +176,7 @@
         'eventLabel': 'Клик по "Распечатать" в Графике платежей',
         'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
         'tag3': jQuery("#sum").val().replace(/\s/g, ''),
+        'tag4': undefined,
         'amount': parseInt(jQuery("#sum").val().replace(/\s/g, '')),
         'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
       });
@@ -217,6 +222,7 @@
       'eventLabel': 'Клик по "Оформить заявку"',
       'tag2': cart + "/" + _insurance + "/" + _hasMulticard,
       'tag3': jQuery("#sum").val().replace(/\s/g, ''),
+      'tag4': undefined,
       'amount': parseInt(jQuery("#sum").val().replace(/\s/g, '')),
       'term': parseInt(jQuery("#term").val().replace(/\s/g, ''))
     });
