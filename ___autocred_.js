@@ -266,7 +266,7 @@
   });
   // Уменьшение ежемесячный платеж
   if (jQuery('.ga_avto_monthlyPayment_down').length) {
-    jQuery(document).on('click', '.ga_avto_firstPayment_down', function() {
+    jQuery(document).on('click', '.ga_avto_monthlyPayment_down', function() {
       sel_ = jQuery(this).siblings('input')
       setTimeout(function() {
         dataLayer.push({
@@ -308,7 +308,7 @@
   }
   // Увеличение ежемесячный платеж
   if (jQuery('.ga_avto_monthlyPayment_up').length) {
-    jQuery(document).on('click', '.ga_avto_firstPayment_up', function() {
+    jQuery(document).on('click', '.ga_avto_monthlyPayment_up', function() {
       sel_ = jQuery(this).siblings('input')
       setTimeout(function() {
         dataLayer.push({
