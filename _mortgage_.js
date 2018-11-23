@@ -1167,6 +1167,9 @@
         'eventCategory': 'Ипотека / ' + ref_,
         'eventAction': 'Нижняя часть страницы',
         'eventLabel': jQuery(this).text(),
+        'tag2': undefined,
+        'tag3': undefined,
+        'tag4': undefined,
         'amount': undefined,
         'term': undefined
       })
@@ -1182,6 +1185,9 @@
         'eventCategory': 'Ипотека / ' + ref_,
         'eventAction': 'Нижняя часть страницы',
         'eventLabel': jQuery(this).text(),
+        'tag2': undefined,
+        'tag3': undefined,
+        'tag4': undefined,
         'amount': undefined,
         'term': undefined
       })
