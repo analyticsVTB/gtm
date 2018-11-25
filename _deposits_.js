@@ -1,4 +1,5 @@
 //console.log("++++++++++++deposits.js is loaded from git++++++++++++++");
+if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') == -1) {
   // Клик по "Рассчитать"
   if (jQuery('.ga_deposit_calc_calculate').length) {
     jQuery(document).on('click', '.ga_deposit_calc_calculate', function() {
@@ -195,6 +196,7 @@
       })
     })
   }
+}
   // <!-- Подбор вклада -->
   if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') > -1) {
     // Изменение суммы вклада
