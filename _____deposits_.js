@@ -641,8 +641,10 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       }
     })
   }
+  }
   // Клик по "Найти отделение" на странице Обмен валют
   if (document.location.href.indexOf('/personal/platezhi-i-perevody/obmen-valjuty/') > -1) {
+    setTimeout(function(){
     if (jQuery('.ga_depositCurrencyChange_findBranch').length) {
       jQuery(document).on('click', '.ga_depositCurrencyChange_findBranch', function() {
         dataLayer.push({
@@ -668,9 +670,11 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
         }
       })
     }
+    }, 1000)
   }
   // Клик по "Открыть счет" на странице Накопительный счет
   if (document.location.href.indexOf('/personal/vklady-i-scheta/scheta/nakopitelny-schet') > -1) {
+    setTimeout(function(){
     var _txtths = '_';
     if (jQuery('.ga_depositSavingsAcc_clickOpenAcc').length) {
       jQuery(document).on('click', '.ga_depositSavingsAcc_clickOpenAcc', function() {
@@ -703,8 +707,9 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
         }
       });
     }
+    }, 1000)
   }
-  }
+
   // Изменение значений расчета (цифры на синем фоне). "Рассчитать доход" на странице Вклада
   var bidCh = jQuery('.deposit-detail-calc_stake .ng-binding').text().replace(/\s/g, '');
   var incCh = jQuery('.deposit-detail-calc_income .ng-binding').text().replace(/\s/g, '');
