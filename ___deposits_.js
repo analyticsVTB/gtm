@@ -1,4 +1,4 @@
-//console.log("++++++++++++deposits.js is loaded from git++++++++++++++");
+  //console.log("++++++++++++deposits.js is loaded from git++++++++++++++");
 if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') == -1) {
   // Клик по "Рассчитать"
   if (jQuery('.ga_deposit_calc_calculate').length) {
@@ -510,6 +510,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
     })
   }*/
   // Клик по Рассчитать на странице Вклада
+  if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') == -1) {
   if (jQuery('.ga_deposit_vkladCalc').length) {
     jQuery(document).on('click', '.ga_deposit_vkladCalc', function() {
       dataLayer.push({
@@ -535,7 +536,6 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       }
     })
   }
-if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') == -1) {
   // Клик по "Открыть в отделении" на странице Вклада
   if (jQuery('.ga_deposit_vkladOpenInBranch').length) {
     jQuery(document).on('click', '.ga_deposit_vkladOpenInBranch', function() {
@@ -588,7 +588,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       }
     })
   }
-}
+
   // Клик по Рассчитать на странице Меню Вкладов
   if (jQuery('.ga_depositMenu_calc').length) {
     jQuery(document).on('click', '.ga_depositMenu_calc', function() {
@@ -703,6 +703,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
         }
       });
     }
+  }
   }
   // Изменение значений расчета (цифры на синем фоне). "Рассчитать доход" на странице Вклада
   var bidCh = jQuery('.deposit-detail-calc_stake .ng-binding').text().replace(/\s/g, '');
