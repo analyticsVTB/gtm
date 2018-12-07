@@ -108,7 +108,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
 	}
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_deposit_calc_openInBranch');
-						yaCounter47142057.reachGoal('{{vklad name}}-otdeleniya');
+						yaCounter47142057.reachGoal(vklad_name+'-otdeleniya');
 				yaCounter47142057.reachGoal('vklad-otdeleniya');
       }
     })
@@ -130,6 +130,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       })
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_deposit_calc_depositSum');
+		yaCounter47142057.reachGoal('vklady-i-scheta-'+ vklad_name +'-calculator'); // value was like "vklady-i-scheta-komfoortnj-calculator"
       }
     })
   } else {
@@ -148,6 +149,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       })
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_deposit_calc_depositSum');
+		yaCounter47142057.reachGoal('vklady-i-scheta-'+ vklad_name +'-calculator'); // value was like "vklady-i-scheta-komfoortnj-calculator"
       }
     })
   }
@@ -174,6 +176,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
           })
           if (typeof yaCounter47142057 != "undefined") {
             yaCounter47142057.reachGoal('ym_deposit_calc_depositTermDecrease');
+			yaCounter47142057.reachGoal('vklady-i-scheta-'+ vklad_name +'-calculator'); // value was like "vklady-i-scheta-komfoortnj-calculator"
           }
         } else if (depositTerm < depositTerm_new) {
           dataLayer.push({
@@ -190,6 +193,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
           })
           if (typeof yaCounter47142057 != "undefined") {
             yaCounter47142057.reachGoal('ym_deposit_calc_depositTermIncrease');
+			yaCounter47142057.reachGoal('vklady-i-scheta-'+ vklad_name +'-calculator'); // value was like "vklady-i-scheta-komfoortnj-calculator"
           }
         }
       })
@@ -214,6 +218,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
           })
           if (typeof yaCounter47142057 != "undefined") {
             yaCounter47142057.reachGoal('ym_deposit_calc_depositTermDecrease');
+			yaCounter47142057.reachGoal('vklady-i-scheta-'+ vklad_name +'-calculator'); // value was like "vklady-i-scheta-komfoortnj-calculator"
           }
         } else if (depositTerm < depositTerm_new) {
           dataLayer.push({
@@ -230,6 +235,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
           })
           if (typeof yaCounter47142057 != "undefined") {
             yaCounter47142057.reachGoal('ym_deposit_calc_depositTermIncrease');
+			yaCounter47142057.reachGoal('vklady-i-scheta-'+ vklad_name +'-calculator'); // value was like "vklady-i-scheta-komfoortnj-calculator"
           }
         }
       })
