@@ -1,4 +1,8 @@
   //console.log("++++++++++++deposits.js is loaded from git++++++++++++++");
+  var url = new URL(window.location.href);
+var vklad_name = url.searchParams.get("name");
+  
+  
 if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') == -1) {
   // Клик по "Рассчитать"
   if (jQuery('.ga_deposit_calc_calculate').length) {
@@ -16,6 +20,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       })
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_deposit_calc_calculate');
+		yaCounter47142057.reachGoal(vklad_name+'-button-calculate');
       }
     })
   } else {
@@ -33,6 +38,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       })
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_deposit_calc_calculate');
+		yaCounter47142057.reachGoal(vklad_name+'-button-calculate');
       }
     })
   }
@@ -51,9 +57,25 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
         'amount': parseInt(jQuery("#sum").val().replace(/\s/g, '')),
         'term': Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
       })
+	  var eventAction = 'Тип не определился';
+	if (jQuery('a.button.button_red.button_big.ng-binding').text() == 'Открыть в интернет-банке') {
+		eventAction = 'online.vtb.ru';
+		if (typeof yaCounter47142057 != "undefined") {
+			yaCounter47142057.reachGoal('vklady-i-scheta-'+vklad_name+'-online.vtb.ru'); //value was like "vklady-i-scheta-komfoortnj-online.vtb.ru"
+			yaCounter47142057.reachGoal('vklady-i-scheta-online.vtb.ru');
+		}
+	} else { // отделения или лажа
+		if (jQuery('a.button.button_red.button_big.ng-binding').text() == 'Открыть в отделении'){
+			eventAction = 'otdeleniya';
+			if (typeof yaCounter47142057 != "undefined") {
+				yaCounter47142057.reachGoal(vklad_name+'-otdeleniya');
+				yaCounter47142057.reachGoal('vklad-otdeleniya');
+			}
+		}
+	}
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_deposit_calc_openInBranch');
-      }
+				}
     })
   } else {
     jQuery(document).on('click', 'a.button.button_red.button_big.ng-binding', function() {
@@ -69,8 +91,25 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
         'amount': parseInt(jQuery("#sum").val().replace(/\s/g, '')),
         'term': Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
       });
+	  if (jQuery('a.button.button_red.button_big.ng-binding').text() == 'Открыть в интернет-банке') {
+		eventAction = 'online.vtb.ru';
+		if (typeof yaCounter47142057 != "undefined") {
+			yaCounter47142057.reachGoal('vklady-i-scheta-'+vklad_name+'-online.vtb.ru'); //value was like "vklady-i-scheta-komfoortnj-online.vtb.ru"
+			yaCounter47142057.reachGoal('vklady-i-scheta-online.vtb.ru');
+		}
+	} else { // отделения или лажа
+		if (jQuery('a.button.button_red.button_big.ng-binding').text() == 'Открыть в отделении'){
+			eventAction = 'otdeleniya';
+			if (typeof yaCounter47142057 != "undefined") {
+				yaCounter47142057.reachGoal(vklad_name+'-otdeleniya');
+				yaCounter47142057.reachGoal('vklad-otdeleniya');
+			}
+		}
+	}
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_deposit_calc_openInBranch');
+						yaCounter47142057.reachGoal('{{vklad name}}-otdeleniya');
+				yaCounter47142057.reachGoal('vklad-otdeleniya');
       }
     })
   }
@@ -521,6 +560,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       })
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_deposit_vkladCalc');
+		yaCounter47142057.reachGoal(vklad_name + '-button-calculate');
       }
     })
   } else {
@@ -533,6 +573,8 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       })
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_deposit_vkladCalc');
+		yaCounter47142057.reachGoal(vklad_name + '-button-calculate');
+		
       }
     })
   }
@@ -547,10 +589,12 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       })
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_deposit_vkladOpenInBranch');
+		yaCounter47142057.reachGoal(vklad_name+'-otdeleniya');
+		yaCounter47142057.reachGoal('vklad-otdeleniya');
       }
     })
   } else {
-    jQuery(document).on('click', '.promo-deposit__buttons a:contains("Открыть в отделении")', function() {
+    jQuery(document).on('click', '.promo-deposit__buttons a:contains("Открыть в отделении"), .info-block__header a:contains("отделении")', function() {
       dataLayer.push({
         'event': 'UA event',
         'eventCategory': 'Вклады / ' + jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''),
@@ -559,6 +603,8 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       })
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_deposit_vkladOpenInBranch');
+		yaCounter47142057.reachGoal(vklad_name+'-otdeleniya');
+		yaCounter47142057.reachGoal('vklad-otdeleniya');
       }
     })
   }
@@ -573,10 +619,13 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       })
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_deposit_vkladOpenInInet');
+		//vklad_name
+		yaCounter47142057.reachGoal('vklady-i-scheta-'+vklad_name+'-online.vtb.ru'); //value was like "vklady-i-scheta-komfoortnj-online.vtb.ru"
+		yaCounter47142057.reachGoal('vklady-i-scheta-online.vtb.ru');
       }
     })
   } else {
-    jQuery(document).on('click', '.promo-deposit__buttons a:contains("Открыть в интернет-банке")', function() {
+    jQuery(document).on('click', '.promo-deposit__buttons a:contains("Открыть в интернет-банке"), .info-block__header > a:contains("ВТБ-Онлайн")', function() {
       dataLayer.push({
         'event': 'UA event',
         'eventCategory': 'Вклады / ' + jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''),
@@ -585,6 +634,8 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       })
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_deposit_vkladOpenInInet');
+		yaCounter47142057.reachGoal('vklady-i-scheta-'+vklad_name+'-online.vtb.ru'); //value was like "vklady-i-scheta-komfoortnj-online.vtb.ru"
+		yaCounter47142057.reachGoal('vklady-i-scheta-online.vtb.ru');
       }
     })
   }
@@ -702,3 +753,4 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       }
     }, 1000);
   });
+  
