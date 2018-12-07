@@ -108,8 +108,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
 	}
       if (typeof yaCounter47142057 != "undefined") {
         yaCounter47142057.reachGoal('ym_deposit_calc_openInBranch');
-						yaCounter47142057.reachGoal(vklad_name+'-otdeleniya');
-				yaCounter47142057.reachGoal('vklad-otdeleniya');
+
       }
     })
   }
