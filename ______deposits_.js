@@ -732,6 +732,19 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
         }
       });
     }
+	jQuery(".margin-middle-bottom ul li:nth-of-type(1), .margin-middle-bottom ul li:nth-of-type(2), .margin-middle-bottom ul li:nth-of-type(3)").on('click', function() {
+	 txt = $(this).text().replace(/\s/g, '');
+	dataLayer.push({
+	  'eventCategory': 'Вклады / ' + 'Накопительный счет',
+	  'eventAction': 'Страница счета',
+	  'eventLabel': txt,
+	  'event': 'UA event'
+	});
+	if (typeof yaCounter47142057 != "undefined") 
+	{
+	yaCounter47142057.reachGoal('nakopitelny-schet_click_'+txt);
+	}
+});
   }
   // Изменение значений расчета (цифры на синем фоне). "Рассчитать доход" на странице Вклада
   var bidCh = jQuery('.deposit-detail-calc_stake .ng-binding').text().replace(/\s/g, '');
