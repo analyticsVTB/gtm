@@ -158,7 +158,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
   if (jQuery('.ga_deposit_calc_depositTerm').length) {
     jQuery(document).on('focus', '.ga_deposit_calc_depositTerm', function() {
       depositTerm = jQuery('.ga_deposit_calc_depositTerm').val().replace(/\s/g, '')
-      jQuery(document).on('change', '.ga_deposit_calc_depositTerm', function() {
+      jQuery(document).one('change', '.ga_deposit_calc_depositTerm', function() {
         depositTerm_new = jQuery('.ga_deposit_calc_depositTerm').val().replace(/\s/g, '')
         if (depositTerm > depositTerm_new) {
           dataLayer.push({
@@ -200,7 +200,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
   } else {
     jQuery(document).on('focus', 'input#days', function() {
       depositTerm = jQuery('input#days').val().replace(/\s/g, '')
-      jQuery(document).on('change', 'input#days', function() {
+      jQuery(document).one('change', 'input#days', function() {
         depositTerm_new = jQuery('input#days').val().replace(/\s/g, '')
         if (depositTerm > depositTerm_new) {
           dataLayer.push({
@@ -287,7 +287,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
     if (jQuery('.ga_depositSelection_depositTerm').length) {
       jQuery(document).on('focus', '.ga_depositSelection_depositTerm', function() {
         depositTerm = jQuery('.ga_depositSelection_depositTerm').val().replace(/\s/g, '')
-        jQuery(document).on('change', '.ga_depositSelection_depositTerm', function() {
+        jQuery(document).one('change', '.ga_depositSelection_depositTerm', function() {
           depositTerm_new = jQuery('.ga_depositSelection_depositTerm').val().replace(/\s/g, '')
           if (depositTerm > depositTerm_new) {
             dataLayer.push({
@@ -327,7 +327,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
     } else {
       jQuery(document).on('focus', 'input#days', function() {
         depositTerm = jQuery('input#days').val().replace(/\s/g, '')
-        jQuery(document).on('change', 'input#days', function() {
+        jQuery(document).one('change', 'input#days', function() {
           depositTerm_new = jQuery('input#days').val().replace(/\s/g, '')
           if (depositTerm > depositTerm_new) {
             dataLayer.push({
