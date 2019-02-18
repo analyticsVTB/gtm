@@ -152,13 +152,13 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       }
     })
   }
-  // Увеличение/Уменьшение срока // Срабатывает 1 раз
+  // Увеличение/Уменьшение срока // Срабатывает каждый раз
   var depositTerm = undefined
   var depositTerm_new = undefined
   if (jQuery('.ga_deposit_calc_depositTerm').length) {
-    jQuery(document).one('focus', '.ga_deposit_calc_depositTerm', function() {
+    jQuery(document).on('focus', '.ga_deposit_calc_depositTerm', function() {
       depositTerm = jQuery('.ga_deposit_calc_depositTerm').val().replace(/\s/g, '')
-      jQuery(document).one('change', '.ga_deposit_calc_depositTerm', function() {
+      jQuery(document).on('change', '.ga_deposit_calc_depositTerm', function() {
         depositTerm_new = jQuery('.ga_deposit_calc_depositTerm').val().replace(/\s/g, '')
         if (depositTerm > depositTerm_new) {
           dataLayer.push({
@@ -198,9 +198,9 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       })
     })
   } else {
-    jQuery(document).one('focus', 'input#days', function() {
+    jQuery(document).on('focus', 'input#days', function() {
       depositTerm = jQuery('input#days').val().replace(/\s/g, '')
-      jQuery(document).one('change', 'input#days', function() {
+      jQuery(document).on('change', 'input#days', function() {
         depositTerm_new = jQuery('input#days').val().replace(/\s/g, '')
         if (depositTerm > depositTerm_new) {
           dataLayer.push({
@@ -285,7 +285,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
     var depositTerm = undefined
     var depositTerm_new = undefined
     if (jQuery('.ga_depositSelection_depositTerm').length) {
-      jQuery(document).one('focus', '.ga_depositSelection_depositTerm', function() {
+      jQuery(document).on('focus', '.ga_depositSelection_depositTerm', function() {
         depositTerm = jQuery('.ga_depositSelection_depositTerm').val().replace(/\s/g, '')
         jQuery(document).on('change', '.ga_depositSelection_depositTerm', function() {
           depositTerm_new = jQuery('.ga_depositSelection_depositTerm').val().replace(/\s/g, '')
@@ -325,7 +325,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
         })
       })
     } else {
-      jQuery(document).one('focus', 'input#days', function() {
+      jQuery(document).on('focus', 'input#days', function() {
         depositTerm = jQuery('input#days').val().replace(/\s/g, '')
         jQuery(document).on('change', 'input#days', function() {
           depositTerm_new = jQuery('input#days').val().replace(/\s/g, '')
