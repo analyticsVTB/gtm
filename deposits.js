@@ -1,7 +1,9 @@
   //console.log("++++++++++++deposits.js is loaded from git++++++++++++++");
   var url = new URL(window.location.href);
 var vklad_name = url.searchParams.get("name");
-  
+ var v_name = jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''); 
+ var btn_pos = null;
+		
   
 if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') == -1) {
   // Клик по "Рассчитать"
@@ -9,7 +11,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
     jQuery(document).on('click', '.ga_deposit_calc_calculate', function() {
       dataLayer.push({
         'event': 'UA event',
-        'eventCategory': 'Вклады / ' + jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''),
+        'eventCategory': 'Вклады / ' + v_name,
         'eventAction': 'Калькулятор',
         'eventLabel': 'Клик по "Рассчитать"',
         'tag2': jQuery('#sum').val().replace(/\s/g, "") + '/' + Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)),
@@ -27,7 +29,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
     jQuery(document).on('click', 'input[value="Рассчитать"]', function() {
       dataLayer.push({
         'event': 'UA event',
-        'eventCategory': 'Вклады / ' + jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''),
+        'eventCategory': 'Вклады / ' + v_name,
         'eventAction': 'Калькулятор',
         'eventLabel': 'Клик по "Рассчитать"',
         'tag2': jQuery('#sum').val().replace(/\s/g, "") + '/' + Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)),
@@ -408,6 +410,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
     // Клик по кнопке "Открыть в интернет-банке"
     if (jQuery('.ga_depositSelection_openInternetBank').length) {
       jQuery(document).on('click', '.ga_depositSelection_openInternetBank', function() {
+		v_name = jQuery(this).parents('.deposit-item__content').siblings('.deposit-item__head').children('h3').text().replace(/\s/g, '');
         snimat = jQuery('#partialWithdrawalCheck').is('.ng-not-empty') ? 'Снимать+' : 'Снимать-';
         popolnyat = jQuery('#replenishmentCheck').is('.ng-not-empty') ? 'Пополнять+' : 'Пополнять-';
         dataLayer.push({
@@ -417,7 +420,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
           'eventLabel': 'Клик по "Открыть в интернет-банке"',
           'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
           'tag3': jQuery('a[ng-bind="pickerCurrency.Symbol"].active').text(),
-          'tag4': jQuery(this).parents('.deposit-item__content').siblings('.deposit-item__head').children('h3').text().replace(/\s/g, ''),
+          'tag4': v_name, //jQuery(this).parents('.deposit-item__content').siblings('.deposit-item__head').children('h3').text().replace(/\s/g, ''),
           'amount': parseInt(jQuery(this).parents('.deposit-item__footer').siblings('.deposit-item__row').children('div:nth-of-type(3)').children('div:nth-of-type(2)').text().replace(/\s/g, '')),
           'term': Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
         })
@@ -427,6 +430,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       })
     } else {
       jQuery(document).on('click', '.deposit-item__footer-btn a:contains("Открыть в интернет-банке")', function() {
+		v_name = jQuery(this).parents('.deposit-item__content').siblings('.deposit-item__head').children('h3').text().replace(/\s/g, '')
         snimat = jQuery('#partialWithdrawalCheck').is('.ng-not-empty') ? 'Снимать+' : 'Снимать-';
         popolnyat = jQuery('#replenishmentCheck').is('.ng-not-empty') ? 'Пополнять+' : 'Пополнять-';
         dataLayer.push({
@@ -436,7 +440,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
           'eventLabel': 'Клик по "Открыть в интернет-банке"',
           'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
           'tag3': jQuery('a[ng-bind="pickerCurrency.Symbol"].active').text(),
-          'tag4': jQuery(this).parents('.deposit-item__content').siblings('.deposit-item__head').children('h3').text().replace(/\s/g, ''),
+          'tag4': v_name,
           'amount': parseInt(jQuery(this).parents('.deposit-item__footer').siblings('.deposit-item__row').children('div:nth-of-type(3)').children('div:nth-of-type(2)').text().replace(/\s/g, '')),
           'term': Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
         })
@@ -448,6 +452,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
     // Клик по кнопке "Открыть в отделении"
     if (jQuery('.ga_depositSelection_openInDepartment').length) {
       jQuery(document).on('click', '.ga_depositSelection_openInDepartment', function() {
+		  v_name = jQuery(this).parents('.deposit-item__content').siblings('.deposit-item__head').children('h3').text().replace(/\s/g, '');
         snimat = jQuery('#partialWithdrawalCheck').is('.ng-not-empty') ? 'Снимать+' : 'Снимать-';
         popolnyat = jQuery('#replenishmentCheck').is('.ng-not-empty') ? 'Пополнять+' : 'Пополнять-';
         dataLayer.push({
@@ -457,7 +462,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
           'eventLabel': 'Клик по "Открыть в отделении"',
           'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
           'tag3': jQuery('a[ng-bind="pickerCurrency.Symbol"].active').text(),
-          'tag4': jQuery(this).parents('.deposit-item__content').siblings('.deposit-item__head').children('h3').text().replace(/\s/g, ''),
+          'tag4': v_name,
           'amount': parseInt(jQuery(this).parents('.deposit-item__footer').siblings('.deposit-item__row').children('div:nth-of-type(3)').children('div:nth-of-type(2)').text().replace(/\s/g, '')),
           'term': Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
         })
@@ -467,6 +472,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       })
     } else {
       jQuery(document).on('click', '.deposit-item__footer-btn a:contains("Открыть в отделении")', function() {
+		  v_name = jQuery(this).parents('.deposit-item__content').siblings('.deposit-item__head').children('h3').text().replace(/\s/g, '');
         snimat = jQuery('#partialWithdrawalCheck').is('.ng-not-empty') ? 'Снимать+' : 'Снимать-';
         popolnyat = jQuery('#replenishmentCheck').is('.ng-not-empty') ? 'Пополнять+' : 'Пополнять-';
         dataLayer.push({
@@ -476,7 +482,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
           'eventLabel': 'Клик по "Открыть в отделении"',
           'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
           'tag3': jQuery('a[ng-bind="pickerCurrency.Symbol"].active').text(),
-          'tag4': jQuery(this).parents('.deposit-item__content').siblings('.deposit-item__head').children('h3').text().replace(/\s/g, ''),
+          'tag4': v_name,
           'amount': parseInt(jQuery(this).parents('.deposit-item__footer').siblings('.deposit-item__row').children('div:nth-of-type(3)').children('div:nth-of-type(2)').text().replace(/\s/g, '')),
           'term': Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
         })
@@ -584,12 +590,17 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
     })
   }
   // Клик по "Открыть в отделении" на странице Вклада
+  
   if (jQuery('.ga_deposit_vkladOpenInBranch').length) {
     jQuery(document).on('click', '.ga_deposit_vkladOpenInBranch', function() {
+		switch(jQuery(this).text()){
+			"Открыть в отделении":  btn_pos = "Верх страницы";
+			"отделении": btn_pos = "Низ страницы";
+		}
       dataLayer.push({
         'event': 'UA event',
-        'eventCategory': 'Вклады / ' + jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''),
-        'eventAction': 'Страница вклада',
+        'eventCategory': 'Вклады / ' + v_name,
+        'eventAction': 'Страница вклада' +'/' + btn_pos,
         'eventLabel': 'Клик по "Открыть в отделении"'
       })
       if (typeof yaCounter47142057 != "undefined") {
@@ -600,10 +611,14 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
     })
   } else {
     jQuery(document).on('click', '.promo-deposit__buttons a:contains("Открыть в отделении"), .info-block__header a:contains("отделении")', function() {
+		switch(jQuery(this).text()){
+			"Открыть в отделении":  btn_pos = "Верх страницы";
+			"отделении": btn_pos = "Низ страницы";
+		}
       dataLayer.push({
         'event': 'UA event',
-        'eventCategory': 'Вклады / ' + jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''),
-        'eventAction': 'Страница вклада',
+        'eventCategory': 'Вклады / ' + v_name,
+        'eventAction': 'Страница вклада' +'/' + btn_pos,
         'eventLabel': 'Клик по "Открыть в отделении"'
       })
       if (typeof yaCounter47142057 != "undefined") {
@@ -616,10 +631,14 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
   // Клик по "Открыть в интернет-банке" на странице Вклада
   if (jQuery('.ga_deposit_vkladOpenInInet').length) {
     jQuery(document).on('click', '.ga_deposit_vkladOpenInInet', function() {
+		switch(jQuery(this).text()){
+			"Открыть в интернет-банке":  btn_pos = "Верх страницы";
+			"ВТБ-Онлайн": btn_pos = "Низ страницы";
+		}
       dataLayer.push({
         'event': 'UA event',
         'eventCategory': 'Вклады / ' + jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''),
-        'eventAction': 'Страница вклада',
+        'eventAction': 'Страница вклада' + '/' + btn_pos,
         'eventLabel': 'Клик по "Открыть в интернет-банке"'
       })
       if (typeof yaCounter47142057 != "undefined") {
@@ -631,10 +650,14 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
     })
   } else {
     jQuery(document).on('click', '.promo-deposit__buttons a:contains("Открыть в интернет-банке"), .info-block__header > a:contains("ВТБ-Онлайн")', function() {
+		switch(jQuery(this).text()){
+			"Открыть в интернет-банке":  btn_pos = "Верх страницы";
+			"ВТБ-Онлайн": btn_pos = "Низ страницы";
+		}
       dataLayer.push({
         'event': 'UA event',
         'eventCategory': 'Вклады / ' + jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''),
-        'eventAction': 'Страница вклада',
+        'eventAction': 'Страница вклада' + '/' + btn_pos,
         'eventLabel': 'Клик по "Открыть в интернет-банке"'
       })
       if (typeof yaCounter47142057 != "undefined") {
@@ -717,7 +740,8 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
         }
       });
     } else {
-      jQuery(document).on('click', '.button.button_red', function() {
+		// +  Клик по "ВТБ-онлайн" и "отделении" на странице Накопительный счет
+      jQuery(document).on('click', '.button.button_red, div.info-block__content > p > a:contains("ВТБ-Онлайн"), div.info-block__content > p > a:contains("отделении")', function() {
         _txtths = jQuery(this).text().trim();
         jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ? _txtths = 'Клик по "' + jQuery(this).text() + '" (сверху)' : _txtths = 'Клик по "' + jQuery(this).text() + '"';
         dataLayer.push({
@@ -745,7 +769,10 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
 	yaCounter47142057.reachGoal('nakopitelny-schet_click_'+txt);
 	}
 });
+    
   }
+  
+  
   // Изменение значений расчета (цифры на синем фоне). "Рассчитать доход" на странице Вклада
   var bidCh = jQuery('.deposit-detail-calc_stake .ng-binding').text().replace(/\s/g, '');
   var incCh = jQuery('.deposit-detail-calc_income .ng-binding').text().replace(/\s/g, '');
