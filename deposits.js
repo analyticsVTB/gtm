@@ -593,9 +593,10 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
   
   if (jQuery('.ga_deposit_vkladOpenInBranch').length) {
     jQuery(document).on('click', '.ga_deposit_vkladOpenInBranch', function() {
-		switch(jQuery(this).text()){
-			"Открыть в отделении":  btn_pos = "Верх страницы";
-			"отделении": btn_pos = "Низ страницы";
+		var this_t = jQuery(this).text();
+		switch(this_t){
+			case 'Открыть в отделении':  btn_pos = "Верх страницы";
+			case 'отделении': btn_pos = "Низ страницы";
 		}
       dataLayer.push({
         'event': 'UA event',
@@ -612,8 +613,8 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
   } else {
     jQuery(document).on('click', '.promo-deposit__buttons a:contains("Открыть в отделении"), .info-block__header a:contains("отделении")', function() {
 		switch(jQuery(this).text()){
-			"Открыть в отделении":  btn_pos = "Верх страницы";
-			"отделении": btn_pos = "Низ страницы";
+			case "Открыть в отделении":  btn_pos = "Верх страницы";
+			case "отделении": btn_pos = "Низ страницы";
 		}
       dataLayer.push({
         'event': 'UA event',
@@ -632,8 +633,8 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
   if (jQuery('.ga_deposit_vkladOpenInInet').length) {
     jQuery(document).on('click', '.ga_deposit_vkladOpenInInet', function() {
 		switch(jQuery(this).text()){
-			"Открыть в интернет-банке":  btn_pos = "Верх страницы";
-			"ВТБ-Онлайн": btn_pos = "Низ страницы";
+			case "Открыть в интернет-банке":  btn_pos = "Верх страницы";
+			case "ВТБ-Онлайн": btn_pos = "Низ страницы";
 		}
       dataLayer.push({
         'event': 'UA event',
@@ -651,8 +652,8 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
   } else {
     jQuery(document).on('click', '.promo-deposit__buttons a:contains("Открыть в интернет-банке"), .info-block__header > a:contains("ВТБ-Онлайн")', function() {
 		switch(jQuery(this).text()){
-			"Открыть в интернет-банке":  btn_pos = "Верх страницы";
-			"ВТБ-Онлайн": btn_pos = "Низ страницы";
+			case "Открыть в интернет-банке":  btn_pos = "Верх страницы";
+			case "ВТБ-Онлайн": btn_pos = "Низ страницы";
 		}
       dataLayer.push({
         'event': 'UA event',
