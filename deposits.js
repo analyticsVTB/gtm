@@ -739,7 +739,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
         jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ? _txtths = 'Клик по "' + jQuery(this).text() + '" (сверху)' : _txtths = 'Клик по "' + jQuery(this).text() + '"';
         dataLayer.push({
           'event': 'UA event',
-          'eventCategory': 'Вклады / ' + 'Накопительный счет',
+          'eventCategory': 'Вклады / ' + v_name,
           'eventAction': 'Страница счета',
           'eventLabel': _txtths,
           'tag2': jQuery('.tab-panel__tab.active').text().trim()
@@ -755,7 +755,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
         jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ? _txtths = 'Клик по "' + jQuery(this).text() + '" (сверху)' : _txtths = 'Клик по "' + jQuery(this).text() + '"';
         dataLayer.push({
           'event': 'UA event',
-          'eventCategory': 'Вклады / ' + 'Накопительный счет',
+          'eventCategory': 'Вклады / ' + v_name,
           'eventAction': 'Страница счета',
           'eventLabel': _txtths,
           'tag2': jQuery('.tab-panel__tab.active').text().trim()
@@ -768,7 +768,7 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
 	jQuery(".margin-middle-bottom ul li:nth-of-type(1), .margin-middle-bottom ul li:nth-of-type(2), .margin-middle-bottom ul li:nth-of-type(3)").on('click', function() {
 	 txt = $(this).text().replace(/\s/g, '');
 	dataLayer.push({
-	  'eventCategory': 'Вклады / ' + 'Накопительный счет',
+	  'eventCategory': 'Вклады / ' + v_name,
 	  'eventAction': 'Страница счета',
 	  'eventLabel': txt,
 	  'event': 'UA event'
