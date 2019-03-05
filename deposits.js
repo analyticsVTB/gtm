@@ -797,12 +797,22 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
         }
       });
     }
-	jQuery(".margin-middle-bottom ul li:nth-of-type(1), .margin-middle-bottom ul li:nth-of-type(2), .margin-middle-bottom ul li:nth-of-type(3)").on('click', function() {
-	 txt = $(this).text().replace(/\s/g, '');
+	jQuery(".margin-middle-bottom ul li:nth-of-type(1), .margin-middle-bottom ul li:nth-of-type(2), .margin-middle-bottom ul li:nth-of-type(3), ol.order-list.order-list_steps > li > h4 > a:contains('Мультикарту ВТБ'), h4 > a:contains('Сбережения'), a.button.button_common").on('click', function() {
+	 txt = $(this).text().replace(/\n.*/g, '');
+	 console.log(txt);
+	 switch(txt){
+			case "«Сбережения»":  btn_pos = "Средняя часть страницы";
+			break;
+			case "Мультикарту ВТБ":  btn_pos = "Средняя часть страницы";
+			break;
+			case "Узнать больше": btn_pos = "Нижняя часть страницы";
+			break;
+			//default: btn_pos = "неопределенная часть страницы счета";
+		}
 	dataLayer.push({
 	  'eventCategory': 'Вклады / ' + active_tab  + '/' + v_name,
-	  'eventAction': 'Страница счета',
-	  'eventLabel': txt,
+	  'eventAction': btn_pos,
+	  'eventLabel': 'Клик по ' + txt,
 	  'event': 'UA event'
 	});
 	if (typeof yaCounter47142057 != "undefined") 
