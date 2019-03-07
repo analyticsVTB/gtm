@@ -769,10 +769,12 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
       jQuery(document).on('click', '.ga_depositSavingsAcc_clickOpenAcc', function() {
         _txtths = jQuery(this).text().trim();
         jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ? _txtths = 'Клик по "' + jQuery(this).text() + '" (сверху)' : _txtths = 'Клик по "' + jQuery(this).text() + '"';
-        dataLayer.push({
+        jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ?  btn_pos = "Верхняя часть страницы" :  btn_pos = "Средняя часть страницы";
+			
+		dataLayer.push({
           'event': 'UA event',
           'eventCategory': 'Вклады / ' + active_tab  + '/' + v_name,
-          'eventAction': 'Страница счета',
+          'eventAction': btn_pos,
           'eventLabel': _txtths,
           'tag2': active_tab
         })
@@ -784,11 +786,13 @@ if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') 
 		// +  Клик по "ВТБ-онлайн" и "отделении" на странице Накопительный счет
       jQuery(document).on('click', '.button.button_red, div.info-block__content > p > a:contains("ВТБ-Онлайн"), div.info-block__content > p > a:contains("отделении")', function() {
         _txtths = jQuery(this).text().trim();
-        jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ? _txtths = 'Клик по "' + jQuery(this).text() + '" (сверху)' : _txtths = 'Клик по "' + jQuery(this).text() + '"';
+        btn_pos = "Средняя часть страницы";
+		jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ? _txtths = 'Клик по "' + jQuery(this).text() + '" (сверху)' : _txtths = 'Клик по "' + jQuery(this).text() + '"';
+		 
         dataLayer.push({
           'event': 'UA event',
           'eventCategory': 'Вклады / ' + active_tab + '/' +  v_name,
-          'eventAction': 'Страница счета',
+          'eventAction': btn_pos,
           'eventLabel': _txtths,
           'tag2':  active_tab
         })
