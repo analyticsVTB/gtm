@@ -816,7 +816,7 @@
 			switch(_txtths){
 				case "ВТБ-онлайн":  btn_pos = "Средняя часть страницы";
 				break;
-				case "мультикарту":  btn_pos = "Верхняя часть страницы";
+				case "Мультикарту":  btn_pos = "Верхняя часть страницы";
 				break;
 				case "отделении": btn_pos = "Средняя часть страницы";
 				break;
@@ -824,8 +824,7 @@
 			}
 			
 			jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ? _txtths = 'Клик по "' + jQuery(this).text() + '" (сверху)' : _txtths = 'Клик по "' + jQuery(this).text() + '"';
-			jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ?  btn_pos = "Верхняя часть страницы" :  btn_pos = "Средняя часть страницы";
-			
+						
 			dataLayer.push({
 			  'event': 'UA event',
 			  'eventCategory': 'Вклады / ' + v_name + ' / ' +   active_tab,
