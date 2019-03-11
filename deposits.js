@@ -515,13 +515,10 @@
 			snimat = jQuery('#partialWithdrawalCheck').is('.ng-not-empty') ? 'Снимать+' : 'Снимать-';
 			popolnyat = jQuery('#replenishmentCheck').is('.ng-not-empty') ? 'Пополнять+' : 'Пополнять-';
 			var term_rounded = ''
-			try {
+			if (jQuery("#days").val()) {
 			term_rounded = Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
 			} 
-			catch(error) {
-				console.error(error);
 			
-			}
 			dataLayer.push({
 			  'event': 'UA event',
 			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + v_name,
@@ -542,13 +539,9 @@
 			snimat = jQuery('#partialWithdrawalCheck').is('.ng-not-empty') ? 'Снимать+' : 'Снимать-';
 			popolnyat = jQuery('#replenishmentCheck').is('.ng-not-empty') ? 'Пополнять+' : 'Пополнять-';
 			var term_rounded = ''
-			try {
-				term_rounded = Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
+			if (jQuery("#days").val()) {
+			term_rounded = Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
 			} 
-			catch(error) {
-				console.error(error);
-			
-			}
 			dataLayer.push({
 			  'event': 'UA event',
 			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + v_name,
