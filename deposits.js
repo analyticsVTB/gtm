@@ -525,7 +525,7 @@
 			}
 			dataLayer.push({
 			  'event': 'UA event',
-			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + jQuery(this).text().replace(/\s/g, ''),
+			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + jQuery(this).text().trim(), //.replace(/\s/g, ''),
 			  'eventAction': 'Средняя часть страницы',
 			  'eventLabel': 'Клик по названию вклада',
 			  'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
@@ -553,7 +553,7 @@
 			}
 			dataLayer.push({
 			  'event': 'UA event',
-			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + jQuery(this).text().replace(/\s/g, ''),
+			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + jQuery(this).text().trim(), //.replace(/\s/g, ''),
 			  'eventAction': 'Средняя часть страницы',
 			  'eventLabel': 'Клик по названию вклада',
 			  'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
