@@ -515,11 +515,14 @@
 			snimat = jQuery('#partialWithdrawalCheck').is('.ng-not-empty') ? 'Снимать+' : 'Снимать-';
 			popolnyat = jQuery('#replenishmentCheck').is('.ng-not-empty') ? 'Пополнять+' : 'Пополнять-';
 			active_tab = jQuery('.tab-panel__tab.active').text().trim();
-			var term_rounded = ''
+			var term_rounded = '';
+			var amount_v = 0;
 			if (jQuery("#days").val()) {
 			term_rounded = Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
 			} 
-			
+			if (jQuery(this).parents('.deposit-item__inner.clear-after.ng-isolate-scope').children('.deposit-item__content').children('.deposit-item__row').children('div:nth-of-type(3)').children('div:nth-of-type(2)').text()){
+				amount_v = parseInt(jQuery(this).parents('.deposit-item__inner.clear-after.ng-isolate-scope').children('.deposit-item__content').children('.deposit-item__row').children('div:nth-of-type(3)').children('div:nth-of-type(2)').text().replace(/\s/g, ''))
+			}
 			dataLayer.push({
 			  'event': 'UA event',
 			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + jQuery(this).text().replace(/\s/g, ''),
@@ -528,7 +531,7 @@
 			  'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
 			  'tag3': jQuery('a[ng-bind="pickerCurrency.Symbol"].active').text(),
 			  'tag4': jQuery(this).text().replace(/\s/g, ''),
-			  'amount': parseInt(jQuery(this).parents('.deposit-item__inner.clear-after.ng-isolate-scope').children('.deposit-item__content').children('.deposit-item__row').children('div:nth-of-type(3)').children('div:nth-of-type(2)').text().replace(/\s/g, '')),
+			  'amount': amount_v,
 			  'term':  term_rounded
 			})
 			if (typeof yaCounter47142057 != "undefined") {
@@ -540,10 +543,14 @@
 			snimat = jQuery('#partialWithdrawalCheck').is('.ng-not-empty') ? 'Снимать+' : 'Снимать-';
 			popolnyat = jQuery('#replenishmentCheck').is('.ng-not-empty') ? 'Пополнять+' : 'Пополнять-';
 			active_tab = jQuery('.tab-panel__tab.active').text().trim();
-			var term_rounded = ''
+			var term_rounded = '';
+			var amount_v = 0;
 			if (jQuery("#days").val()) {
 			term_rounded = Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
 			} 
+			if (jQuery(this).parents('.deposit-item__inner.clear-after.ng-isolate-scope').children('.deposit-item__content').children('.deposit-item__row').children('div:nth-of-type(3)').children('div:nth-of-type(2)').text()){
+				amount_v = parseInt(jQuery(this).parents('.deposit-item__inner.clear-after.ng-isolate-scope').children('.deposit-item__content').children('.deposit-item__row').children('div:nth-of-type(3)').children('div:nth-of-type(2)').text().replace(/\s/g, ''))
+			}
 			dataLayer.push({
 			  'event': 'UA event',
 			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + jQuery(this).text().replace(/\s/g, ''),
@@ -552,7 +559,7 @@
 			  'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
 			  'tag3': jQuery('a[ng-bind="pickerCurrency.Symbol"].active').text(),
 			  'tag4': jQuery(this).text().replace(/\s/g, ''),
-			  'amount': parseInt(jQuery(this).parents('.deposit-item__inner.clear-after.ng-isolate-scope').children('.deposit-item__content').children('.deposit-item__row').children('div:nth-of-type(3)').children('div:nth-of-type(2)').text().replace(/\s/g, '')),
+			  'amount': amount_v,
 			  'term': term_rounded
 			})
 			if (typeof yaCounter47142057 != "undefined") {
