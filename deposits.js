@@ -514,6 +514,7 @@
 		  jQuery(document).on('click', '.ga_depositSelection_vklad', function() {
 			snimat = jQuery('#partialWithdrawalCheck').is('.ng-not-empty') ? 'Снимать+' : 'Снимать-';
 			popolnyat = jQuery('#replenishmentCheck').is('.ng-not-empty') ? 'Пополнять+' : 'Пополнять-';
+			active_tab = jQuery('.tab-panel__tab.active').text().trim();
 			var term_rounded = ''
 			if (jQuery("#days").val()) {
 			term_rounded = Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
@@ -521,7 +522,7 @@
 			
 			dataLayer.push({
 			  'event': 'UA event',
-			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + v_name,
+			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + jQuery(this).text().replace(/\s/g, ''),
 			  'eventAction': 'Средняя часть страницы',
 			  'eventLabel': 'Клик по названию вклада',
 			  'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
@@ -538,13 +539,14 @@
 		  jQuery(document).on('click', 'a[ng-bind="result.Deposit.Title"]', function() {
 			snimat = jQuery('#partialWithdrawalCheck').is('.ng-not-empty') ? 'Снимать+' : 'Снимать-';
 			popolnyat = jQuery('#replenishmentCheck').is('.ng-not-empty') ? 'Пополнять+' : 'Пополнять-';
+			active_tab = jQuery('.tab-panel__tab.active').text().trim();
 			var term_rounded = ''
 			if (jQuery("#days").val()) {
 			term_rounded = Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
 			} 
 			dataLayer.push({
 			  'event': 'UA event',
-			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + v_name,
+			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + jQuery(this).text().replace(/\s/g, ''),
 			  'eventAction': 'Средняя часть страницы',
 			  'eventLabel': 'Клик по названию вклада',
 			  'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
