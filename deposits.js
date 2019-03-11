@@ -8,11 +8,11 @@
 	var cat_name = v_name;
 	switch(document.location.href){
 				case 'https://www.vtb.ru/personal/vklady-i-scheta/':  
-					page_type = " разводящей страницы";
+					page_type = " разводящей страницы вкладов";
 					cat_name = active_tab ;
 				break;
 				case 'https://www.vtb.ru/personal/vklady-i-scheta/podobrat-vklad/':
-					page_type = " разводящей страницы";
+					page_type = " разводящей страницы вкладов";
 					cat_name = active_tab ;
 				break;
 				default: 
@@ -431,7 +431,7 @@
 			dataLayer.push({
 			  'event': 'UA event',
 			  'eventCategory': 'Вклады / ' + active_tab,
-			  'eventAction': 'Калькулятор',
+			  'eventAction': 'Средняя часть страницы',
 			  'eventLabel': 'Клик по "Открыть в интернет-банке"',
 			  'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
 			  'tag3': jQuery('a[ng-bind="pickerCurrency.Symbol"].active').text(),
@@ -451,7 +451,7 @@
 			dataLayer.push({
 			  'event': 'UA event',
 			  'eventCategory': 'Вклады / ' + active_tab,
-			  'eventAction': 'Калькулятор',
+			  'eventAction': 'Средняя часть страницы',
 			  'eventLabel': 'Клик по "Открыть в интернет-банке"',
 			  'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
 			  'tag3': jQuery('a[ng-bind="pickerCurrency.Symbol"].active').text(),
@@ -473,7 +473,7 @@
 			dataLayer.push({
 			  'event': 'UA event',
 			  'eventCategory': 'Вклады / ' + active_tab,
-			  'eventAction': 'Калькулятор',
+			  'eventAction': 'Средняя часть страницы',
 			  'eventLabel': 'Клик по "Открыть в отделении"',
 			  'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
 			  'tag3': jQuery('a[ng-bind="pickerCurrency.Symbol"].active').text(),
@@ -493,7 +493,7 @@
 			dataLayer.push({
 			  'event': 'UA event',
 			  'eventCategory': 'Вклады / ' + active_tab,
-			  'eventAction': 'Калькулятор',
+			  'eventAction': 'Средняя часть страницы',
 			  'eventLabel': 'Клик по "Открыть в отделении"',
 			  'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
 			  'tag3': jQuery('a[ng-bind="pickerCurrency.Symbol"].active').text(),
@@ -509,20 +509,29 @@
 		
 		
 		// Клик по названию вклада
+		
 		if (jQuery('.ga_depositSelection_vklad').length) {
 		  jQuery(document).on('click', '.ga_depositSelection_vklad', function() {
 			snimat = jQuery('#partialWithdrawalCheck').is('.ng-not-empty') ? 'Снимать+' : 'Снимать-';
 			popolnyat = jQuery('#replenishmentCheck').is('.ng-not-empty') ? 'Пополнять+' : 'Пополнять-';
+			var term_rounded = ''
+			try {
+			term_rounded = Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
+			} 
+			catch(error) {
+				console.error(error);
+			
+			}
 			dataLayer.push({
 			  'event': 'UA event',
-			  'eventCategory': 'Вклады / ' + active_tab + '/' + v_name,
+			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + v_name,
 			  'eventAction': 'Средняя часть страницы',
 			  'eventLabel': 'Клик по названию вклада',
 			  'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
 			  'tag3': jQuery('a[ng-bind="pickerCurrency.Symbol"].active').text(),
 			  'tag4': jQuery(this).text().replace(/\s/g, ''),
 			  'amount': parseInt(jQuery(this).parents('.deposit-item__inner.clear-after.ng-isolate-scope').children('.deposit-item__content').children('.deposit-item__row').children('div:nth-of-type(3)').children('div:nth-of-type(2)').text().replace(/\s/g, '')),
-			  'term': Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
+			  'term':  term_rounded
 			})
 			if (typeof yaCounter47142057 != "undefined") {
 			  yaCounter47142057.reachGoal('ym_depositSelection_vklad');
@@ -532,16 +541,24 @@
 		  jQuery(document).on('click', 'a[ng-bind="result.Deposit.Title"]', function() {
 			snimat = jQuery('#partialWithdrawalCheck').is('.ng-not-empty') ? 'Снимать+' : 'Снимать-';
 			popolnyat = jQuery('#replenishmentCheck').is('.ng-not-empty') ? 'Пополнять+' : 'Пополнять-';
+			var term_rounded = ''
+			try {
+				term_rounded = Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
+			} 
+			catch(error) {
+				console.error(error);
+			
+			}
 			dataLayer.push({
 			  'event': 'UA event',
-			  'eventCategory': 'Вклады / ' + active_tab + '/' + v_name,
+			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + v_name,
 			  'eventAction': 'Средняя часть страницы',
 			  'eventLabel': 'Клик по названию вклада',
 			  'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
 			  'tag3': jQuery('a[ng-bind="pickerCurrency.Symbol"].active').text(),
 			  'tag4': jQuery(this).text().replace(/\s/g, ''),
 			  'amount': parseInt(jQuery(this).parents('.deposit-item__inner.clear-after.ng-isolate-scope').children('.deposit-item__content').children('.deposit-item__row').children('div:nth-of-type(3)').children('div:nth-of-type(2)').text().replace(/\s/g, '')),
-			  'term': Math.round(parseInt(jQuery("#days").val().replace(/\s/g, '')) / ((30 + 28.25 + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31) / 12)) /* кол-во дней / на кол-во дней в среднем мес-це, округлить в ближ сторону */
+			  'term': term_rounded
 			})
 			if (typeof yaCounter47142057 != "undefined") {
 			  yaCounter47142057.reachGoal('ym_depositSelection_vklad');
@@ -576,15 +593,15 @@
 		  }
 		})
 	  }*/
-	  // Клик по Рассчитать на странице Вклада !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  // Клик по Рассчитать на странице Вклада 
 	  if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') == -1) {
 	  if (jQuery('.ga_deposit_vkladCalc').length) {
 		jQuery(document).on('click', '.ga_deposit_vkladCalc', function() {
-
-		  dataLayer.push({
+			v_name = jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''); 
+			  dataLayer.push({
 			'event': 'UA event',
 			'eventCategory': 'Вклады / ' + v_name,
-			'eventAction': 'Страница вклада',
+			'eventAction': 'Верхняя часть страницы вклада',
 			'eventLabel': 'Клик по "Рассчитать"'
 		  })
 		  if (typeof yaCounter47142057 != "undefined") {
@@ -594,10 +611,11 @@
 		})
 	  } else {
 		jQuery(document).on('click', '.promo-deposit__buttons a:contains("Рассчитать")', function() {
+			v_name = jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''); 
 		  dataLayer.push({
 			'event': 'UA event',
 			'eventCategory': 'Вклады / ' + v_name,
-			'eventAction': 'Страница вклада',
+			'eventAction': 'Верхняя часть страницы вклада',
 			'eventLabel': 'Клик по "Рассчитать"'
 		  })
 		  if (typeof yaCounter47142057 != "undefined") {
@@ -618,9 +636,10 @@
 				case 'отделении': btn_pos = "Нижняя часть";
 				break;
 			}
+			v_name = jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''); 
 		  dataLayer.push({
 			'event': 'UA event',
-			'eventCategory': 'Вклады / '+ cat_name,
+			'eventCategory': 'Вклады / '+ v_name,
 			'eventAction': btn_pos + page_type,
 			'eventLabel': 'Клик по "Открыть в отделении"'
 		  })
@@ -638,9 +657,10 @@
 				case "отделении": btn_pos = "Нижняя часть";
 				break;
 			}
+			v_name = jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''); 
 		  dataLayer.push({
 			'event': 'UA event',
-			'eventCategory': 'Вклады / '+ cat_name,
+			'eventCategory': 'Вклады / '+ v_name,
 			'eventAction': btn_pos + page_type,
 			'eventLabel': 'Клик по "Открыть в отделении"'
 		  })
@@ -660,9 +680,10 @@
 				case "ВТБ-Онлайн": btn_pos = "Нижняя часть";
 				break;
 			}
+			v_name = jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''); 
 		  dataLayer.push({
 			'event': 'UA event',
-			'eventCategory': 'Вклады / ' + cat_name,
+			'eventCategory': 'Вклады / ' + v_name,
 			'eventAction': btn_pos + page_type,
 			'eventLabel': 'Клик по "Открыть в интернет-банке"'
 		  })
@@ -681,9 +702,10 @@
 				case "ВТБ-Онлайн": btn_pos = "Нижняя часть";
 				break;
 			}
+			v_name = jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''); 
 		  dataLayer.push({
 			'event': 'UA event',
-			'eventCategory': 'Вклады / ' + cat_name,
+			'eventCategory': 'Вклады / ' + v_name,
 			'eventAction': btn_pos + page_type,
 			'eventLabel': 'Клик по "Открыть в интернет-банке"'
 		  })
@@ -707,7 +729,7 @@
 		  dataLayer.push({
 			'event': 'UA event',
 			'eventCategory': 'Вклады / ' + active_tab + ' / ' + jQuery(this).parents('.deposit-item__content').siblings('.deposit-item__head').children('h3').text().trim().replace(/\n.*/g, ''),
-			'eventAction': 'Меню вкладов',
+			'eventAction': 'Средняя часть страницы',
 			'eventLabel': 'Клик по "' + jQuery(this).text() + '"'
 		  })
 		  if (typeof yaCounter47142057 != "undefined") {
@@ -719,7 +741,7 @@
 		  dataLayer.push({
 			'event': 'UA event',
 			'eventCategory': 'Вклады / '+ active_tab + ' / ' + jQuery(this).parents('.deposit-item__content').siblings('.deposit-item__head').children('h3').text().trim().replace(/\n.*/g, ''),
-			'eventAction': 'Меню вкладов',
+			'eventAction': 'Средняя часть страницы',
 			'eventLabel': 'Клик по "' + jQuery(this).text() + '"'
 		  })
 		  if (typeof yaCounter47142057 != "undefined") {
@@ -733,7 +755,7 @@
 		  dataLayer.push({
 			'event': 'UA event',
 			'eventCategory': 'Вклады / ' + active_tab + ' / ' + jQuery(this).parents('.deposit-item__content').siblings('.deposit-item__head').children('h3').text().trim().replace(/\n.*/g, ''),
-			'eventAction': 'Меню вкладов',
+			'eventAction': 'Средняя часть страницы',
 			'eventLabel': 'Клик по "' + jQuery(this).text() + '"'
 		  })
 		  if (typeof yaCounter47142057 != "undefined") {
@@ -745,7 +767,7 @@
 		  dataLayer.push({
 			'event': 'UA event',
 			'eventCategory': 'Вклады / ' + active_tab + ' / ' + jQuery(this).parents('.deposit-item__content').siblings('.deposit-item__head').children('h3').text().trim().replace(/\n.*/g, ''),
-			'eventAction': 'Меню вкладов',
+			'eventAction': 'Средняя часть страницы',
 			'eventLabel': 'Клик по "' + jQuery(this).text() + '"'
 		  })
 		  if (typeof yaCounter47142057 != "undefined") {
@@ -775,7 +797,7 @@
 				
 			dataLayer.push({
 			  'event': 'UA event',
-			  'eventCategory': 'Вклады / ' + active_tab  + '/' + v_name,
+			  'eventCategory': 'Вклады / ' + v_name   + ' / ' + active_tab,
 			  'eventAction': btn_pos,
 			  'eventLabel': _txtths,
 			  'tag2': active_tab
@@ -789,12 +811,22 @@
 			// +  Клик по "мультикарту" на странице Накопительный счет
 		  jQuery(document).on('click', '.button.button_red, div.info-block__content > p > a:contains("ВТБ-Онлайн"), div.info-block__content > p > a:contains("отделении"), div.promo-deposit__card > p > a', function() {
 			_txtths = jQuery(this).text().trim();
-			btn_pos = "Средняя часть страницы";
+			switch(_txtths){
+				case "ВТБ-онлайн":  btn_pos = "Средняя часть страницы";
+				break;
+				case "мультикарту":  btn_pos = "Верхняя часть страницы";
+				break;
+				case "отделении": btn_pos = "Средняя часть страницы";
+				break;
+				//default: btn_pos = "неопределенная часть страницы счета";
+			}
+			
 			jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ? _txtths = 'Клик по "' + jQuery(this).text() + '" (сверху)' : _txtths = 'Клик по "' + jQuery(this).text() + '"';
-			 
+			jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ?  btn_pos = "Верхняя часть страницы" :  btn_pos = "Средняя часть страницы";
+			
 			dataLayer.push({
 			  'event': 'UA event',
-			  'eventCategory': 'Вклады / ' + active_tab + '/' +  v_name,
+			  'eventCategory': 'Вклады / ' + v_name + ' / ' +   active_tab,
 			  'eventAction': btn_pos,
 			  'eventLabel': _txtths,
 			  'tag2':  active_tab
@@ -817,7 +849,7 @@
 				//default: btn_pos = "неопределенная часть страницы счета";
 			}
 		dataLayer.push({
-		  'eventCategory': 'Вклады / ' + active_tab  + '/' + v_name,
+		  'eventCategory': 'Вклады / ' + v_name  + ' / ' +  active_tab,
 		  'eventAction': btn_pos,
 		  'eventLabel': 'Клик по ' + txt,
 		  'event': 'UA event'
@@ -835,14 +867,14 @@
 	  var bidCh = jQuery('.deposit-detail-calc_stake .ng-binding').text().replace(/\s/g, '');
 	  var incCh = jQuery('.deposit-detail-calc_income .ng-binding').text().replace(/\s/g, '');
 	  var sumCh = jQuery('.deposit-detail-calc_sum .ng-binding').text().replace(/\s/g, '');
-	  var CH = bidCh + '/' + incCh + '/' + sumCh;
+	  var CH = bidCh + ' / ' + incCh + ' / ' + sumCh;
 	  jQuery(document).on('click', '#calculation > div a', function() {
 		setTimeout(function() {
-		  if (CH != jQuery('.deposit-detail-calc_stake .ng-binding').text().replace(/\s/g, '') + '/' + jQuery('.deposit-detail-calc_income .ng-binding').text().replace(/\s/g, '') + '/' + jQuery('.deposit-detail-calc_sum .ng-binding').text().replace(/\s/g, '')) {
+		  if (CH != jQuery('.deposit-detail-calc_stake .ng-binding').text().replace(/\s/g, '') + ' / ' + jQuery('.deposit-detail-calc_income .ng-binding').text().replace(/\s/g, '') + ' / ' + jQuery('.deposit-detail-calc_sum .ng-binding').text().replace(/\s/g, '')) {
 			bidCh = jQuery('.deposit-detail-calc_stake .ng-binding').text().replace(/\s/g, '');
 			incCh = jQuery('.deposit-detail-calc_income .ng-binding').text().replace(/\s/g, '');
 			sumCh = jQuery('.deposit-detail-calc_sum .ng-binding').text().replace(/\s/g, '');
-			CH = bidCh + '/' + incCh + '/' + sumCh;
+			CH = bidCh + ' / ' + incCh + ' / ' + sumCh;
 			dataLayer.push({
 			  'event': 'UA event',
 			  'eventCategory': 'Вклады / ' + jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''),
