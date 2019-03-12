@@ -837,7 +837,7 @@
 			}
 		  });
 		}
-		jQuery(".margin-middle-bottom ul li:nth-of-type(1), .margin-middle-bottom ul li:nth-of-type(2), .margin-middle-bottom ul li:nth-of-type(3), ol.order-list.order-list_steps > li > h4 > a:contains('Мультикарту ВТБ'), h4 > a:contains('Сбережения'), a.button.button_common").on('click', function() {
+		jQuery("section.simple-tab.simple-tab_queen-size.margin-slim-top.margin-middle-bottom > div.simple-tab__heads > div.simple-tab__header.clear-after > ul.simple-tab__heads-list.clear-after > li > a.simple-tab__heads-link > span, ol.order-list.order-list_steps > li > h4 > a:contains('Мультикарту ВТБ'), h4 > a:contains('Сбережения'), a.button.button_common").on('click', function() {
 		 txt = $(this).text().replace(/\n.*/g, '');
 		 console.log(txt);
 		 switch(txt){
@@ -846,6 +846,12 @@
 				case "Мультикарту ВТБ":  btn_pos = "Средняя часть страницы";
 				break;
 				case "Узнать больше": btn_pos = "Нижняя часть страницы";
+				break;
+				//Автопополнение
+				case "Автопополнение": btn_pos = "Нижняя часть страницы";
+				break;
+				//Условия и преимущества
+				case "Условия и преимущества": btn_pos = "Нижняя часть страницы";
 				break;
 				//default: btn_pos = "неопределенная часть страницы счета";
 			}
