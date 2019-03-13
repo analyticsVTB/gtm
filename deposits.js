@@ -823,7 +823,9 @@
 				break;
 				case "отделении": btn_pos = "Средняя часть страницы";
 				break;
-				//default: btn_pos = "неопределенная часть страницы счета";
+				case "Открыть в интернет-банке": btn_pos = "Средняя часть страницы";
+				break;
+				default: btn_pos = "неопределенная часть страницы счета";
 			}
 			
 			jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ? _txtths = 'Клик по "' + jQuery(this).text() + '" (сверху)' : _txtths = 'Клик по "' + jQuery(this).text() + '"';
@@ -858,7 +860,7 @@
 				break;
 				case "Открыть в отделении": btn_pos = "Средняя часть страницы";
 				break;
-				//default: btn_pos = "неопределенная часть страницы счета";
+				default: btn_pos = "неопределенная часть страницы счета";
 			}
 		dataLayer.push({
 		  'eventCategory': 'Вклады / ' + v_name  + ' / ' +  active_tab,
