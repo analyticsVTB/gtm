@@ -660,6 +660,7 @@
 				break;
 			}
 			v_name = jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''); 
+			if (jQuery(this).is(jQuery('.button.button_common'))){return;}
 		  dataLayer.push({
 			'event': 'UA event',
 			'eventCategory': 'Вклады / '+ v_name,
@@ -697,13 +698,15 @@
 		  }
 		})
 	  } else {
-		jQuery(document).on('click', '.promo-deposit__buttons a:contains("Открыть в интернет-банке"), .info-block__header > a:contains("ВТБ-Онлайн")', function() {
+		jQuery(document).on('click', '.promo-deposit__buttons > a:contains("Открыть в интернет-банке"), .info-block__header > a:contains("ВТБ-Онлайн")', function() {
 			switch(jQuery(this).text()){
-				case "Открыть в интернет-банке":  btn_pos = "Верхняя часть";
+				case "Открыть в интернет-банке":  btn_pos = "Верхняя часть страницы";
 				break;
-				case "ВТБ-Онлайн": btn_pos = "Нижняя часть";
+				case "ВТБ-Онлайн": btn_pos = "Нижняя часть страницы";
 				break;
 			}
+			//jQuery(this).is(jQuery('.button.button_red')) ?  btn_pos = "Средняя часть страницы" : btn_pos;
+			if (jQuery(this).is(jQuery('.button.button_red'))){return;}
 			v_name = jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''); 
 		  dataLayer.push({
 			'event': 'UA event',
@@ -852,6 +855,8 @@
 				break;
 				//Условия и преимущества
 				case "Условия и преимущества": btn_pos = "Нижняя часть страницы";
+				break;
+				case "Открыть в отделении": btn_pos = "Средняя часть страницы";
 				break;
 				//default: btn_pos = "неопределенная часть страницы счета";
 			}
