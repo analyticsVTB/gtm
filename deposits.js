@@ -19,6 +19,7 @@
 				page_type = " страницы вклада";
 				cat_name = v_name ;
 				}
+	   
 	  
 	if (document.location.href.indexOf('/personal/vklady-i-scheta/podobrat-vklad/') == -1) {
 	  // Клик по "Рассчитать"
@@ -430,7 +431,7 @@
 			popolnyat = jQuery('#replenishmentCheck').is('.ng-not-empty') ? 'Пополнять+' : 'Пополнять-';
 			dataLayer.push({
 			  'event': 'UA event',
-			  'eventCategory': 'Вклады / ' + active_tab,
+			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + v_name ,
 			  'eventAction': 'Средняя часть страницы',
 			  'eventLabel': 'Клик по "Открыть в интернет-банке"',
 			  'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
@@ -450,7 +451,7 @@
 			popolnyat = jQuery('#replenishmentCheck').is('.ng-not-empty') ? 'Пополнять+' : 'Пополнять-';
 			dataLayer.push({
 			  'event': 'UA event',
-			  'eventCategory': 'Вклады / ' + active_tab,
+			  'eventCategory': 'Вклады / ' + active_tab + ' / ' + v_name,
 			  'eventAction': 'Средняя часть страницы',
 			  'eventLabel': 'Клик по "Открыть в интернет-банке"',
 			  'tag2': jQuery('.button-group [aria-label="Снимать"].active, .button-group [aria-label="Накапливать"].active').text().replace(/\s/g, '') + ', ' + snimat + '/' + popolnyat,
@@ -798,7 +799,7 @@
 		  jQuery(document).on('click', '.ga_depositSavingsAcc_clickOpenAcc', function() {
 			_txtths = jQuery(this).text().trim();
 			jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ? _txtths = 'Клик по "' + jQuery(this).text() + '" (сверху)' : _txtths = 'Клик по "' + jQuery(this).text() + '"';
-			jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ?  btn_pos = "Верхняя часть страницы" :  btn_pos = "Средняя часть страницы";
+			jQuery(this).is(jQuery('.promo-deposit__card > p > .button.button_red')) ?  btn_pos = "Верхняя часть страницы" :  btn_pos = "Средняя часть страницы"; // to fun
 				
 			dataLayer.push({
 			  'event': 'UA event',
@@ -815,6 +816,7 @@
 			// +  Клик по "ВТБ-онлайн" и "отделении" на странице Накопительный счет
 			// +  Клик по "мультикарту" на странице Накопительный счет
 		  jQuery(document).on('click', '.button.button_red, div.info-block__content > p > a:contains("ВТБ-Онлайн"), div.info-block__content > p > a:contains("отделении"), div.promo-deposit__card > p > a', function() {
+			  // btPosition (jQuery(this), document.location.href)
 			_txtths = jQuery(this).text().trim();
 			switch(_txtths){
 				case "ВТБ-онлайн":  btn_pos = "Средняя часть страницы";
@@ -824,6 +826,9 @@
 				case "отделении": btn_pos = "Средняя часть страницы";
 				break;
 				case "Открыть в интернет-банке": btn_pos = "Средняя часть страницы";
+				break;
+				//Заказать карту
+				case "Заказать карту": btn_pos = "Средняя часть страницы";
 				break;
 				default: btn_pos = "неопределенная часть страницы счета";
 			}
