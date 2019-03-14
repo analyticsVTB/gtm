@@ -660,7 +660,7 @@
 				break;
 			}
 			v_name = jQuery('div.promo-deposit__content-inner h1').text().trim().replace(/\n.*/g, ''); 
-			if (jQuery(this).is(jQuery('.button.button_common'))){return;}
+			if (jQuery(this).is(jQuery('.button.button_common')) && document.location.href.indexOf('nakopitelny-schet') > -1){return;}
 		  dataLayer.push({
 			'event': 'UA event',
 			'eventCategory': 'Вклады / '+ v_name,
@@ -711,7 +711,7 @@
 		  dataLayer.push({
 			'event': 'UA event',
 			'eventCategory': 'Вклады / ' + v_name,
-			'eventAction': btn_pos + page_type,
+			'eventAction': btn_pos,
 			'eventLabel': 'Клик по "Открыть в интернет-банке"'
 		  })
 		  if (typeof yaCounter47142057 != "undefined") {
