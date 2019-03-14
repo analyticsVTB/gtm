@@ -93,7 +93,7 @@
       }
     })
   }
-  // Клик по "Распечатать"
+  // Клик по "Распечатать" 1
   if (jQuery('.ga_ipoteka_printer').length) {
     jQuery(document).on('click', '.ga_ipoteka_printer', function() {
       _amoter_(_amount_, _term_);
