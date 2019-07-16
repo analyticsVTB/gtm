@@ -618,4 +618,26 @@
       //         yaCounter47142057.reachGoal('ym_ibonus_order');}
     });
   }
+//Нижний блок КН
+if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi') > -1) {
+    jQuery(document).on('click', 'a.base-link', function() {
+      dataLayer.push({
+        'event': 'UA event',
+        'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim(),
+        'eventAction': 'Нижний блок',
+        'eventLabel': jQuery(this).text()
+      })
+    })
+  };
+// Нижний блок КН часть 2
+    if (document.location.href.indexOf('www.vtb.ru/personal/kredit-nalichnymi') > -1) {
+  jQuery(document).on('click','a', function() {
+    if (jQuery(this).text() == 'Корпоративная программа') {
+      dataLayer.push({
+        'event': 'UA event',
+        'eventCategory': 'Кредиты / ' + jQuery('h1').text().trim(),
+        'eventAction': 'Нижний блок',
+        'eventLabel': jQuery(this).text()
+      })}
+      })};
 
